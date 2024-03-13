@@ -1,0 +1,14 @@
+.page_top {
+  background-color: #001d3d;
+  color: white;
+  background-image: url("/movie-theater.jpg");
+  background-attachment: scroll;
+  background-position: center;
+  background-blend-mode: overlay;
+  background-size: cover;
+}
+
+
+
+
+
