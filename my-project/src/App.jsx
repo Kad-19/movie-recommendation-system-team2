@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import LoginPage from './LoginPage';
 import SignupPage from './SignupPage';
+import HomePage from './components/HomePage';
 
 const App = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -12,7 +13,8 @@ const App = () => {
 
   return (
     <div>
-      {isLogin ? <LoginPage togglePage={togglePage} /> : <SignupPage togglePage={togglePage} />}
+      {/* {isLogin ? <LoginPage togglePage={togglePage} /> : <SignupPage togglePage={togglePage} />} */}
+      <HomePage/>
     </div>
   );
 };
