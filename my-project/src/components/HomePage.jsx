@@ -39,16 +39,22 @@ const movieGenres = [
 
 const HomePage = () => {
   const [genreClicked, setGenreClicked] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
 
   return (
     <div>
       <div className=" w-[100%] pt-[20px] pb-[100px] page_top bg-bottom">
         <div className="flex flex-col m-auto w-[50%] my-[100px] disappear-md">
-          <Input
-            type="text"
-            placeholder="Search"
-            className="rounded-3xl bg-opacity-70 border-none bg-white text-black"
-          />
+          <div className="flex gap-[10px]">
+            <Input
+              type="text"
+              placeholder="Search"
+              className="rounded-3xl bg-opacity-70 border-none bg-white text-black"
+              onChange={(e) => {
+                setSearchInput(e.target.value);
+              }}
+            />
+          </div>
           <div className="flex mt-[20px] justify-center">
             {movieGenres.slice(0, 7).map((item) => (
               <Button
@@ -130,7 +136,7 @@ const HomePage = () => {
         </div>
       </div>
       <main>
-        <MovieList type="popular" title="Popular"/>
+        <MovieList type="popular" title="Popular" search={searchInput} />
       </main>
     </div>
   );

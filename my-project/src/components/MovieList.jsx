@@ -5,7 +5,7 @@ import "./MovieList.css";
 import MovieCard from "./MovieCard";
 import FilterGroup from "./FilterGroup";
 
-const MovieList = ({ type, title}) => {
+const MovieList = ({ type, title, search }) => {
   const [movies, setMovies] = useState([]);
   const [filterMovies, setFilterMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
@@ -19,19 +19,31 @@ const MovieList = ({ type, title}) => {
   }, [type]);
   useEffect(() => {
     if (sort.by !== "default") {
-      const sortedMovies = _.orderBy(filterMovies, [sort.by], [sort.order]);
-      setFilterMovies(sortedMovies);
     }
   }, [sort]);
+  useEffect(() => {
+    fetchMovies();
+  }, [search]);
 
   const fetchMovies = async () => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?page=3&api_key=2993d064f9608273325bbc41faec9f86`
-    );
-    const data = await response.json();
-    setMovies(data.results);
-    setFilterMovies(data.results);
+    if (search != "") {
+      title = "Search results";
+      const response = await fetch(
+        `https://api.themoviedb.org/3/search/movie?query=${search}&page=1&api_key=2993d064f9608273325bbc41faec9f86`
+      );
+      const data = await response.json();
+      setMovies(data.results);
+      setFilterMovies(data.results);
+    } else {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${type}?page=1&api_key=2993d064f9608273325bbc41faec9f86`
+      );
+      const data = await response.json();
+      setMovies(data.results);
+      setFilterMovies(data.results);
+    }
   };
+
   const handleFilter = (rate) => {
     if (rate === minRating) {
       setMinRating(0);
@@ -50,9 +62,7 @@ const MovieList = ({ type, title}) => {
   return (
     <section className="movie_list" id={type}>
       <header className="align_center movie_list_header">
-        <h2 className="align_center movie_list_heading">
-          {title}{" "}
-        </h2>
+        <h2 className="align_center movie_list_heading">{title} </h2>
 
         <div className="align_center movie_list_fs">
           <FilterGroup
