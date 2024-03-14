@@ -2,7 +2,7 @@
   background-color: #001d3d;
   color: white;
   background-image: url("/movie-theater.jpg");
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-position: center;
   background-blend-mode: overlay;
   background-size: cover;
