@@ -29,4 +29,4 @@ function SingleMoviePage(){
             </p>
         </div>
     </section>)
-}export default Movie
+}export default SingleMoviePage

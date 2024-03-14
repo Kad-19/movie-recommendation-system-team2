@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 
-const ForgotPasswordPage = ({ togglePage }) => {
+const ForgotPasswordPage = () => {
     const [resetMethod, setResetMethod] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -26,7 +27,7 @@ const ForgotPasswordPage = ({ togglePage }) => {
           
             <div style={{paddingLeft:'800px'}} className="flex items-center justify-center min-h-screen ">
                 <div className="bg-white p-8 rounded-2xl shadow-2xl border border-gray-300">
-                <button className="text-white bg-blue-500 ml-64 mb-8" onClick={togglePage}>Sign In</button>
+                <NavLink to="/signup" className="text-white bg-blue-500 ml-64 mb-8">Sign In</NavLink>
                     <h2 className="text-3xl text-black font-bold mb-8">Forgot Your Password?</h2>
                     <form onSubmit={handleResetSubmit} className="max-w-md">
                         <div className="mb-6">
@@ -78,7 +79,7 @@ const ForgotPasswordPage = ({ togglePage }) => {
         </div>
     );
 };
-const LoginPage = ({ togglePage }) => {
+const LoginPage = () => {
     const [isForgotPassword, setIsForgotPassword] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -96,7 +97,7 @@ const LoginPage = ({ togglePage }) => {
     return (
         <div>
             {isForgotPassword ? (
-                <ForgotPasswordPage togglePage={togglePage} />
+                <ForgotPasswordPage/>
             ) : (
                 <div style={{ marginLeft: '800px' }} className="flex items-center justify-center min-h-screen">
                     <div className="bg-white p-8 rounded-2xl shadow-2xl border border-gray-300">
@@ -132,7 +133,7 @@ const LoginPage = ({ togglePage }) => {
                         </form>
                         <h4 className="mt-4 text-red-500 cursor-pointer" onClick={handleForgotPassword}>Forgot my password?</h4>
                         <h4 className="mt-4 text-gray-700">
-                            Don't have an account? <button onClick={togglePage} className="text-white bg-blue-500">Create Account</button>
+                            Don't have an account? <NavLink to="/signup" className="text-white bg-blue-500">Create Account</NavLink>
                         </h4>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 export default function NavBar() {
   const [show, setShow] = useState(false);
   return (
@@ -8,9 +9,9 @@ export default function NavBar() {
 
         <ul className="md:flex space-x-4 hidden ">
           <li>
-            <a href="#" className="hover:underline">
+            <NavLink to="/" className="hover:underline">
               Home
-            </a>
+            </NavLink>
           </li>
           <li>
             <a href="#" className="hover:underline">
@@ -18,9 +19,9 @@ export default function NavBar() {
             </a>
           </li>
           <li>
-            <a href="#" className="hover:underline">
+            <NavLink to="/login" className="hover:underline">
               Login
-            </a>
+            </NavLink>
           </li>
         </ul>
 

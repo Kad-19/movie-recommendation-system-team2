@@ -4,19 +4,15 @@ import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignupPage";
 import HomePage from "./components/HomePage";
 import NavBar from "./components/NavBar";
+import AllRouting from "./components/AllRouting";
 
 const App = () => {
-  const [isLogin, setIsLogin] = useState(true);
-
-  const togglePage = () => {
-    setIsLogin(!isLogin);
-  };
-
+  
   return (
     <div>
       {/* {isLogin ? <LoginPage togglePage={togglePage} /> : <SignupPage togglePage={togglePage} />} */}
       <NavBar />
-      <HomePage />
+      <AllRouting />
     </div>
   );
 };
