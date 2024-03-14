@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-function Movie(){
+function SingleMoviePage(){
     const [movie,setMovie]=useState({})
     const KEY="10a268b7"
     let title=""

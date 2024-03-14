@@ -131,7 +131,7 @@ const HomePage = () => {
       </div>
       <main>
         <h2 className="ml-[10%] my-[30px] font-semibold text-3xl">Movies</h2>
-        <MovieList />
+        <MovieList type="popular" title="Popular"/>
       </main>
     </div>
   );
