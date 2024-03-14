@@ -94,7 +94,7 @@ const MovieList = ({ type, title, search, genre }) => {
             id=""
             onChange={handleSort}
             value={sort.by}
-            className="movie_sorting"
+            className="movie_sorting text-black"
           >
             <option value="default">Sort by</option>
             <option value="release_date">Date</option>
@@ -105,7 +105,7 @@ const MovieList = ({ type, title, search, genre }) => {
             id=""
             onChange={handleSort}
             value={sort.order}
-            className="movie_sorting"
+            className="movie_sorting text-black"
           >
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>

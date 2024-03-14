@@ -8,6 +8,7 @@ const HomePage = () => {
   const [genreClicked, setGenreClicked] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [movieGenres, setMovieGenres] = useState([]);
+  const [movieType, setMovieType] = useState("")
 
   const fetchMovieGenres = async () => {
     const response = await fetch(
@@ -27,7 +28,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <div className=" w-[100%] pt-[20px] pb-[100px] page_top bg-bottom">
+      <div className=" w-[100%] pt-[20px] pb-[100px] page_top bg-bottom mb-[20px]">
         <div className="flex flex-col m-auto w-[50%] my-[100px] disappear-md">
           <div className="flex gap-[10px]">
             <Input
@@ -120,8 +121,25 @@ const HomePage = () => {
         </div>
       </div>
       <main>
+        <div className="flex justify-end">
+          <Button variant="link" className="text-white text-lg" onClick={() => {
+            setMovieType("popular");
+          }}>
+            Popular
+          </Button>
+          <Button variant="link" className="text-white text-lg" onClick={() => {
+            setMovieType("upcoming");
+          }}>
+            Upcoming
+          </Button>
+          <Button variant="link" className="text-white text-lg" onClick={() => {
+            setMovieType("top_rated");
+          }}>
+            Top Rated
+          </Button>
+        </div>
         <MovieList
-          type="popular"
+          type={movieType || "popular"}
           title="Popular"
           search={searchInput}
           genre={genreClicked}
