@@ -1,8 +1,8 @@
 import { useState } from "react";
-export default function navBar() {
+export default function NavBar() {
   const [show,setShow]=useState(false)
   return (
-          <nav className="bg-grey-800 text-white px-4 py-2">
+          <nav className="bg-gray-800 text-white px-4 py-2">
             <div className="flex justify-between items-center">
               <h1 className="text-2xl font-bold">LOGO</h1>
               

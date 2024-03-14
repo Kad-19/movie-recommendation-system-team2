@@ -1,8 +1,10 @@
 // App.jsx
-import React, { useState } from 'react';
-import LoginPage from './LoginPage';
-import SignupPage from './SignupPage';
-import HomePage from './components/HomePage';
+import React, { useState } from "react";
+import LoginPage from "./components/LoginPage";
+import SignupPage from "./components/SignupPage";
+import HomePage from "./components/HomePage";
+import Movie from "./components/Movie";
+import NavBar from "./components/NavBar";
 
 const App = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -14,7 +16,8 @@ const App = () => {
   return (
     <div>
       {/* {isLogin ? <LoginPage togglePage={togglePage} /> : <SignupPage togglePage={togglePage} />} */}
-      <HomePage/>
+      <NavBar />
+      <HomePage />
     </div>
   );
 };

@@ -43,7 +43,6 @@ const HomePage = () => {
   return (
     <div>
       <div className=" w-[100%] pt-[20px] pb-[100px] page_top bg-bottom">
-        <nav className="text-right">Navbar</nav>
         <div className="flex flex-col m-auto w-[50%] my-[100px] disappear-md">
           <Input
             type="text"
