@@ -5,7 +5,7 @@ import "./MovieList.css";
 import MovieCard from "./MovieCard";
 import FilterGroup from "./FilterGroup";
 
-const MovieList = ({ type, title, search }) => {
+const MovieList = ({ type, title, search, genre }) => {
   const [movies, setMovies] = useState([]);
   const [filterMovies, setFilterMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
@@ -24,13 +24,32 @@ const MovieList = ({ type, title, search }) => {
   useEffect(() => {
     fetchMovies();
   }, [search]);
+  useEffect(() => {
+    fetchMovies();
+  }, [genre]);
+
+  const prepareGenreIds = () => {
+    let string = "";
+    for (let i = 0; i < genre.length; i++) {
+      string += genre[i].id.toString();
+      if (i != genre.length - 1) {
+        string += "%2C";
+      }
+    }
+    return string;
+  };
 
   const fetchMovies = async () => {
     if (search != "") {
-      title = "Search results";
       const response = await fetch(
         `https://api.themoviedb.org/3/search/movie?query=${search}&page=1&api_key=2993d064f9608273325bbc41faec9f86`
       );
+      const data = await response.json();
+      setMovies(data.results);
+      setFilterMovies(data.results);
+    } else if (genre.length != 0) {
+      const genre_ids = prepareGenreIds();
+      const response = await fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${genre_ids}&api_key=2993d064f9608273325bbc41faec9f86`);
       const data = await response.json();
       setMovies(data.results);
       setFilterMovies(data.results);
