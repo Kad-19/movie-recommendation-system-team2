@@ -29,15 +29,16 @@ const MoviesPage = () => {
     <div>
       <header>
         <h2>Filter by genre</h2>
-        <div className="mt-[20px] justify-center overflow-x-auto whitespace-nowrap">
+        <div className="m-4 justify-center overflow-x- whitespace-wrap">
           {movieGenres.slice(0, 19).map((item) => (
             <Button
               variant="outline"
               className={
                 searchGenre(item)
-                  ? `bg-[#457b9d] rounded-3xl mx-4 hover:bg-[#457b9d]`
-                  : `bg-[#003049] rounded-3xl mx-4`
+                  ? `bg-[#457b9d] rounded-3xl mx-4 my-2 hover:bg-[#457b9d]`
+                  : `bg-[#003049] rounded-3xl mx-4 my-2`
               }
+              // {/*A grid that would adjust to the screen size would have been better */}
               key={item.id}
               onClick={() => {
                 if (searchGenre(item)) {

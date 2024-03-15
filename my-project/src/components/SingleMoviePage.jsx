@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieList from "./MovieList";
+import { Rating } from "@mui/material";
+import {Typography} from "@mui/material";
 import VideoPopup from "./VideoPopup";
 function SingleMoviePage() {
   const { movie_id } = useParams();
@@ -48,12 +50,29 @@ function SingleMoviePage() {
           />
         </div>
         <div className="p-4">
-          <p>{movie.title}</p>
-          <p>{movie.release_date}</p>
-          <p>Ratings : {movie.vote_average}⭐</p>
-          <p>{movie.tagline}</p>
-          <h3>Overview</h3>
-          <p>{movie.overview}</p>
+        <Typography variant="subtitle1">
+          {movie.title}
+        </Typography>
+        
+        <Typography variant="subtitle1">
+          {movie.release_date}
+        </Typography>
+
+        <Typography variant="subtitle1"> Rating : 
+              <Rating readOnly style={{ verticalAlign: 'sub'}} value={movie.vote_average/2} precision={0.05}/>
+        </Typography>
+        <Typography variant="subtitle1">
+          {movie.tagline}
+        </Typography>
+        
+          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+          Overview
+          </Typography>
+
+        <Typography variant="body2">
+          {movie.overview}
+        </Typography>
+
           <VideoPopup link={`https://www.youtube.com/embed/${trailer}`} />
         </div>
       </section>
