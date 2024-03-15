@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import MovieList from "./MovieList";
 import FilterGroup from "./FilterGroup";
-
+import Pagination from "./Pagination";
 
 const MoviesPage = () => {
   const [genreClicked, setGenreClicked] = useState([]);
   const [movieGenres, setMovieGenres] = useState([]);
   const [movieType, setMovieType] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   const fetchMovieGenres = async () => {
     const response = await fetch(
@@ -23,6 +25,14 @@ const MoviesPage = () => {
   const searchGenre = (genre) => {
     const foundGenre = genreClicked.find((item) => item.id == genre.id);
     return foundGenre;
+  };
+
+  const handleNext = () => {
+    setCurrentPage((prev) => prev + 1);
+  };
+
+  const handlePrevious = () => {
+    setCurrentPage((prev) => prev - 1);
   };
 
   return (
@@ -41,6 +51,7 @@ const MoviesPage = () => {
               // {/*A grid that would adjust to the screen size would have been better */}
               key={item.id}
               onClick={() => {
+                setCurrentPage(1);
                 if (searchGenre(item)) {
                   const newList = genreClicked.filter(
                     (genre) => genre.id != item.id
@@ -76,6 +87,7 @@ const MoviesPage = () => {
               className="text-white text-lg"
               onClick={() => {
                 setMovieType("popular");
+                setCurrentPage(1);
               }}
             >
               Popular
@@ -85,6 +97,7 @@ const MoviesPage = () => {
               className="text-white text-lg"
               onClick={() => {
                 setMovieType("upcoming");
+                setCurrentPage(1);
               }}
             >
               Upcoming
@@ -94,6 +107,7 @@ const MoviesPage = () => {
               className="text-white text-lg"
               onClick={() => {
                 setMovieType("top_rated");
+                setCurrentPage(1);
               }}
             >
               Top Rated
@@ -104,9 +118,19 @@ const MoviesPage = () => {
             search=""
             movie_id=""
             genre={genreClicked}
+            page={currentPage}
+            total_pages_setter={setTotalPages}
           />
         </div>
       </main>
+      <section className="flex justify-end w-[100%] pr-[3rem]">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onNext={handleNext}
+          onPrevious={handlePrevious}
+        />
+      </section>
     </div>
   );
 };
