@@ -14,6 +14,11 @@ export default function NavBar() {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/movies" className="hover:underline">
+              Movies
+            </NavLink>
+          </li>
+          <li>
             <a href="#" className="hover:underline">
               Wish-List
             </a>
