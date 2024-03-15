@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieList from "./MovieList";
+import { Rating } from "@mui/material";
+import {Typography} from "@mui/material";
 import VideoPopup from "./VideoPopup";
 function SingleMoviePage() {
   const { movie_id } = useParams();
@@ -50,7 +52,11 @@ function SingleMoviePage() {
         <div className="p-4">
           <p>{movie.title}</p>
           <p>{movie.release_date}</p>
-          <p>Ratings : {movie.vote_average}⭐</p>
+          <p>
+          Rating :   
+          </p>
+          {/*MUI rating {movie.vote_average}⭐*/}
+          <Rating readOnly value={movie.vote_average/2} precision={0.05}/>
           <p>{movie.tagline}</p>
           <h3>Overview</h3>
           <p>{movie.overview}</p>
