@@ -4,17 +4,39 @@ import "./HomePage.css";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import MovieList from "./MovieList";
+import MovieCard from "./MovieCard";
 
 const HomePage = () => {
   const [searchInput, setSearchInput] = useState("");
-
-  
+  const [popularMovies, setPopularMovies] = useState([]);
+  const [upcomingMovies, setUpcomingMovies] = useState([]);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate(`/search/${searchInput}`);
+  };
+
+  useEffect(() => {
+    fetchMovies("popular");
+    fetchMovies("upcoming");
+    fetchMovies("top_rated");
+  }, []);
+
+  const fetchMovies = async (type) => {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${type}?page=1&api_key=2993d064f9608273325bbc41faec9f86`
+    );
+    const data = await response.json();
+    if (type == "popular") {
+      setPopularMovies(data.results);
+    } else if (type == "upcoming") {
+      setUpcomingMovies(data.results);
+    } else if (type == "top_rated") {
+      setTopRatedMovies(data.results);
+    }
   };
   return (
     <div>
@@ -34,7 +56,38 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <main></main>
+      <main>
+        <section>
+          <h2>Popular</h2>
+          <div>
+            <div className="flex overflow-auto space-x-4 p-4">
+              {popularMovies.map((movie) => (
+                <MovieCard key={movie.id} movie={movie} />
+              ))}
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Upcoming</h2>
+          <div>
+            <div className="flex overflow-auto space-x-4 p-4">
+              {upcomingMovies.map((movie) => (
+                <MovieCard key={movie.id} movie={movie} />
+              ))}
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Top Rated</h2>
+          <div>
+            <div className="flex overflow-auto space-x-4 p-4">
+              {topRatedMovies.map((movie) => (
+                <MovieCard key={movie.id} movie={movie} />
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 };
