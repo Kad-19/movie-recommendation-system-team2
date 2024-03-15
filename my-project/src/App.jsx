@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignupPage";
 import HomePage from "./components/HomePage";
-import NavBar from "./components/navBar";
+import NavBar from "./components/NavBar";
 import AllRouting from "./components/AllRouting";
 
 const App = () => {
