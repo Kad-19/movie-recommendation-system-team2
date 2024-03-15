@@ -13,7 +13,7 @@ const AllRouting = () => {
     <div>
         <Routes>
             <Route path='/' element={<HomePage/>}/>
-            <Route path='/movie' element={<SingleMoviePage/>}/>
+            <Route path='/movie/:movie_id' element={<SingleMoviePage/>}/>
             <Route path='/login' element={<LoginPage/>}/>
             <Route path='/signup' element={<SignupPage/>}/>
             <Route path='/search/:query?' element={<SearchResultsPage/>}/>

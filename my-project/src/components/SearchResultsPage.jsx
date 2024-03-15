@@ -11,11 +11,13 @@ const SearchResultsPage = () => {
       <Input
         placeholder="search movies"
         onChange={(e) => setSearchString(e.target.value)}
+        value={searchString}
+        className="text-black"
       />
       {searchString == "" || !searchString ? (
         <div>No search Results</div>
       ) : (
-        <MovieList type="" title="Search Results" search={searchString} />
+        <MovieList type="" movie_id="" genre={[]} search={searchString} />
       )}
     </div>
   );

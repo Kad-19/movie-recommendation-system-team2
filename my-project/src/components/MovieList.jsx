@@ -5,7 +5,7 @@ import "./MovieList.css";
 import MovieCard from "./MovieCard";
 import FilterGroup from "./FilterGroup";
 
-const MovieList = ({ type, title, search, genre }) => {
+const MovieList = ({ type, movie_id, search, genre }) => {
   const [movies, setMovies] = useState([]);
   const [filterMovies, setFilterMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
@@ -47,13 +47,22 @@ const MovieList = ({ type, title, search, genre }) => {
       const data = await response.json();
       setMovies(data.results);
       setFilterMovies(data.results);
-    } else if (genre.length != 0) {
-      const genre_ids = prepareGenreIds();
-      const response = await fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${genre_ids}&api_key=2993d064f9608273325bbc41faec9f86`);
+    } else if (movie_id != "") {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${movie_id}/similar?api_key=2993d064f9608273325bbc41faec9f86`
+      );
       const data = await response.json();
       setMovies(data.results);
       setFilterMovies(data.results);
-    } else {
+    } else if (genre.length != 0) {
+      const genre_ids = prepareGenreIds();
+      const response = await fetch(
+        `https://api.themoviedb.org/3/discover/movie?with_genres=${genre_ids}&api_key=2993d064f9608273325bbc41faec9f86`
+      );
+      const data = await response.json();
+      setMovies(data.results);
+      setFilterMovies(data.results);
+    } else if (type != ""){
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/${type}?page=1&api_key=2993d064f9608273325bbc41faec9f86`
       );
@@ -80,38 +89,6 @@ const MovieList = ({ type, title, search, genre }) => {
   };
   return (
     <section className="movie_list" id={type}>
-      <header className="align_center movie_list_header">
-        <h2 className="align_center movie_list_heading">{title} </h2>
-
-        <div className="align_center movie_list_fs">
-          <FilterGroup
-            minRating={minRating}
-            onRatingClick={handleFilter}
-            ratings={[8, 7, 6]}
-          />
-          <select
-            name="by"
-            id=""
-            onChange={handleSort}
-            value={sort.by}
-            className="movie_sorting text-black"
-          >
-            <option value="default">Sort by</option>
-            <option value="release_date">Date</option>
-            <option value="vote_average">Rating</option>
-          </select>
-          <select
-            name="order"
-            id=""
-            onChange={handleSort}
-            value={sort.order}
-            className="movie_sorting text-black"
-          >
-            <option value="asc">Ascending</option>
-            <option value="desc">Descending</option>
-          </select>
-        </div>
-      </header>
       <div className="movie_cards">
         {filterMovies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />

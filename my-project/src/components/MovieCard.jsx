@@ -1,10 +1,11 @@
 import React from "react";
 import "./MovieCard.css";
 import Star from "/star.png";
+import { NavLink } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   return (
-    <a className="movie_card" href={`https://www.themoviedb.org/movie/${movie.id}`} target="_blank">
+    <NavLink className="movie_card" to={`/movie/${movie.id}`} target="_blank">
       <img
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt="Movie poster"
@@ -23,7 +24,7 @@ const MovieCard = ({ movie }) => {
           {movie.overview.slice(0, 100) + "..."}
         </p>
       </div>
-    </a>
+    </NavLink>
   );
 };
 
