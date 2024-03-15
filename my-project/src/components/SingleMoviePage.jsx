@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Paper } from "@mui/material"
 function SingleMoviePage(){
     const [movie,setMovie]=useState({})
     const KEY="10a268b7"
