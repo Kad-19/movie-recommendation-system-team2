@@ -37,21 +37,25 @@ module.exports = {
     require("tailwindcss-animate"),
     function ({ addUtilities }) {
       const newUtilities = {
-        ".scorllbar-thin": {
+        ".scrollbar-thin": {
           scrollbarWidth: "thin",
-          scrollbarColor: "rgb(31, 29, 29) white",
+          scrollbarColor: "rgb(31, 29, 29) transparent",
+        },
+        ".scrollbar-thin-dark": {
+          scrollbarWidth: "thin",
+          scrollbarColor: "#f1f5f9 transparent",
         },
         ".scrollbar-webkit": {
-          "&::webkit-scrollbar": {
+          "&::-webkit-scrollbar": {
             width: "8px",
           },
-          "&::webkit-scrollbar-track": {
-            background: "white",
+          "&::-webkit-scrollbar-track": {
+            backgroundColor: "#000",
           },
-          "&::webkit-scrollbar-thumb": {
-            backgroundcolor: "rgb(31, 41, 55)",
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "rgb(31, 41, 55)",
             borderRadius: "20px",
-            border: "1px solid white",
+            border: "1px solid #fff",
           },
         },
       };

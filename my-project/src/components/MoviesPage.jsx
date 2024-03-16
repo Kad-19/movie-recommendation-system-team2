@@ -38,12 +38,12 @@ const MoviesPage = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <div className="bg-white dark:bg-zinc-950">
-      <header className=" bg-zinc-100 text-gray-950 dark:bg-zinc-800 dark:text-white">
-        <div className="mx-4 my-1">
+      <header className=" dark:bg-stone-200 dark:text-stone-800 bg-stone-800 text-stone-300 pb-9">
+        <div className="mx-6 py-6">
           <Typography variant="h6">Filter by genre</Typography>
         </div>
 
-        <div className="mx-4 my-2 justify-center overflow-x- whitespace-wrap dark:text-white">
+        <div className="mx-4 my-2 justify-center overflow-x- whitespace-wrap dark:text-stone-300">
           {movieGenres.slice(0, 19).map((item) => {
             let tailwindConfigeDark = searchGenre(item)
               ? `bg-zinc-600 rounded-3xl mx-4 my-2 hover:bg-[#457b9d]`
@@ -78,20 +78,9 @@ const MoviesPage = () => {
           })}
         </div>
       </header>
-      <main className="flex bg-slate-100 text-gray-950 dark:bg-zinc-800">
-        {/* <div className="my-[50px] bg-black">
-          <div className="align_center">
-            <select name="by" id="" className="movie_sorting text-black">
-              <option value="default">Sort by</option>
-              <option value="release_date">Date</option>
-              <option value="vote_average">Rating</option>
-            </select>
-            
-          </div>
-        </div> */}
-
+      <main className="flex bg-stone-200 text-stone-800 dark:bg-stone-800">
         <div>
-          <div className="flex justify-end">
+          <div className="flex justify-end p-10">
             <Button
               variant="link"
               className="text-lg"
@@ -133,7 +122,7 @@ const MoviesPage = () => {
           />
         </div>
       </main>
-      <section className="flex justify-end w-[100%] pr-[3rem] bg-zinc-100 dark:bg-zinc-700">
+      <section className="flex justify-end w-[100%] px-[6rem] py-[2rem] bg-stone-300 dark:bg-stone-700">
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}

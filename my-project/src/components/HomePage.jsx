@@ -41,7 +41,7 @@ const HomePage = () => {
   };
   return (
     <div>
-      <div className=" w-[100%] pt-[20px] pb-[100px] page_top bg-bottom mb-[20px]">
+      <div className=" w-[100%] pt-[20px] pb-[100px] page_top bg-bottom">
         <div className="flex flex-col m-auto w-[75%] my-[70px]">
           <div className="my-[10px]">
             <h1 className="text-[4rem]">Welcome</h1>
@@ -54,7 +54,7 @@ const HomePage = () => {
               <Input
                 type="text"
                 placeholder="Search movies"
-                className="rounded-3xl bg-opacity-100 bg-zinc-100 text-black dark:bg-zinc-800 dark:text-white dark:font-bold"
+                className="rounded-3xl bg-opacity-100 bg-stone-300 text-black dark:bg-stone-800 dark:text-white dark:font-bold"
                 onChange={(e) => {
                   setSearchInput(e.target.value);
                 }}
@@ -63,25 +63,25 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <main className=" bg-zinc-200 text-black dark:bg-zinc-800 dark:text-white">
+      <main className=" bg-stone-300 text-stone-800 dark:bg-stone-800 dark:text-stone-200">
         <section>
           <Typography variant="h5" sx={{ fontWeight: "bold" }} className="p-8">
             Popular
           </Typography>
           <div>
-            <div className="flex overflow-auto space-x-4 p-4 scrollbar-webkit scorllbar-thin">
+            <div className="flex overflow-auto space-x-4 p-4 scorllbar-webkit scrollbar-thin dark:scrollbar-thin-dark">
               {popularMovies.map((movie) => (
                 <MovieCard key={movie.id} movie={movie} />
               ))}
             </div>
           </div>
         </section>
-        <section>
+        <section className="bg-stone-600 text-stone-200 dark:text-stone-800 dark:bg-stone-400">
           <Typography variant="h5" sx={{ fontWeight: "bold" }} className="p-8">
             Upcoming
           </Typography>
           <div>
-            <div className="flex overflow-auto space-x-4 p-4 scrollbar-webkit scorllbar-thin">
+            <div className="flex overflow-auto space-x-4 p-4 scrollbar-webkit scrollbar-thin dark:scrollbar-thin-dark">
               {upcomingMovies.map((movie) => (
                 <MovieCard key={movie.id} movie={movie} />
               ))}
@@ -93,7 +93,7 @@ const HomePage = () => {
             Top Rated
           </Typography>
           <div>
-            <div className="flex overflow-auto space-x-4 p-4 scrollbar-webkit scorllbar-thin">
+            <div className="flex overflow-auto space-x-4 p-4 scrollbar-webkit scrollbar-thin dark:scrollbar-thin-dark">
               {topRatedMovies.map((movie) => (
                 <MovieCard key={movie.id} movie={movie} />
               ))}

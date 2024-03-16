@@ -1,5 +1,5 @@
 .page_top {
-  background-color: #001d3d;
+  background-color: #292524;
   color: white;
   background-image: url("/movie-theater.jpg");
   background-attachment: fixed;
@@ -8,12 +8,3 @@
   background-size: cover;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: #4caf50; /* Color of the scrollbar thumb */
-  border-radius: 5px; /* Border radius of the scrollbar thumb */
-}
-
-/* Target the scrollbar track when the thumb is being hovered */
-::-webkit-scrollbar-thumb:hover {
-  background-color: #388e3c; /* Color of the scrollbar thumb on hover */
-}
