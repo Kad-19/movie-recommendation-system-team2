@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState} from "react";
 import { Button } from "./ui/button";
 import MovieList from "./MovieList";
 import FilterGroup from "./FilterGroup";
+import { Typography } from "@mui/material";
 import Pagination from "./Pagination";
-
+import { ThemeContext } from "@/App";
 const MoviesPage = () => {
   const [genreClicked, setGenreClicked] = useState([]);
   const [movieGenres, setMovieGenres] = useState([]);
@@ -34,20 +35,27 @@ const MoviesPage = () => {
   const handlePrevious = () => {
     setCurrentPage((prev) => prev - 1);
   };
-
+const {theme}=useContext(ThemeContext)
   return (
-    <div>
-      <header>
-        <h2>Filter by genre</h2>
-        <div className="m-4 justify-center overflow-x- whitespace-wrap">
-          {movieGenres.slice(0, 19).map((item) => (
-            <Button
+    <div className="bg-white dark:bg-zinc-950">
+      <header className=" bg-zinc-100 text-gray-950 dark:bg-zinc-800 dark:text-white">
+        <div className="mx-4 my-1">
+        <Typography variant="h6">
+          Filter by genre
+        </Typography>
+        </div>
+
+        <div className="mx-4 my-2 justify-center overflow-x- whitespace-wrap dark:text-white">
+          {movieGenres.slice(0, 19).map((item) => {
+            let tailwindConfigeDark=searchGenre(item)
+            ? `bg-zinc-600 rounded-3xl mx-4 my-2 hover:bg-[#457b9d]`
+            : `bg-zinc-700 rounded-3xl mx-4 my-2`
+            let tailwindConfigeLight=searchGenre(item)
+            ? `bg-zinc-600  rounded-3xl mx-4 my-2 hover:bg-[#457b9d]`
+            : `bg-zinc-300 border-2 border-gray-700 text-black rounded-3xl mx-4 my-2`
+            return (<Button
               variant="outline"
-              className={
-                searchGenre(item)
-                  ? `bg-[#457b9d] rounded-3xl mx-4 my-2 hover:bg-[#457b9d]`
-                  : `bg-[#003049] rounded-3xl mx-4 my-2`
-              }
+              className={theme=="dark"?tailwindConfigeDark:tailwindConfigeLight}
               // {/*A grid that would adjust to the screen size would have been better */}
               key={item.id}
               onClick={() => {
@@ -64,11 +72,13 @@ const MoviesPage = () => {
               }}
             >
               {item.name}
-            </Button>
-          ))}
+            </Button>)
+      }
+    )
+    }
         </div>
       </header>
-      <main className="flex">
+      <main className="flex bg-slate-100 text-gray-950 dark:bg-zinc-800">
         {/* <div className="my-[50px] bg-black">
           <div className="align_center">
             <select name="by" id="" className="movie_sorting text-black">
@@ -84,7 +94,7 @@ const MoviesPage = () => {
           <div className="flex justify-end">
             <Button
               variant="link"
-              className="text-white text-lg"
+              className="text-lg"
               onClick={() => {
                 setMovieType("popular");
                 setCurrentPage(1);
@@ -94,7 +104,7 @@ const MoviesPage = () => {
             </Button>
             <Button
               variant="link"
-              className="text-white text-lg"
+              className="text-lg"
               onClick={() => {
                 setMovieType("upcoming");
                 setCurrentPage(1);
@@ -104,7 +114,7 @@ const MoviesPage = () => {
             </Button>
             <Button
               variant="link"
-              className="text-white text-lg"
+              className="text-lg"
               onClick={() => {
                 setMovieType("top_rated");
                 setCurrentPage(1);
@@ -123,7 +133,7 @@ const MoviesPage = () => {
           />
         </div>
       </main>
-      <section className="flex justify-end w-[100%] pr-[3rem]">
+      <section className="flex justify-end w-[100%] pr-[3rem] bg-zinc-100 dark:bg-zinc-700">
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}

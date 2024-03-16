@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import MovieList from "./MovieList";
 import { Rating } from "@mui/material";
 import { Typography } from "@mui/material";
+import { ThemeContext } from "@/App";
 import VideoPopup from "./VideoPopup";
 import Pagination from "./Pagination";
 function SingleMoviePage() {
@@ -49,10 +50,13 @@ function SingleMoviePage() {
       }
     }
   };
-
+const {theme,switchTheme}=useContext(ThemeContext)
   return (
-    <main>
-      <section className={`m-4 grid grid-cols-2 gap-1 text-black bg-white`}>
+    <main className=" text-black bg-white dark:bg-gray-800 dark:text-slate-100">
+      <button className=' bg-emerald-300 rounded-lg' onClick={switchTheme}> 
+        Dark
+      </button>
+      <section className={`m-4 grid grid-cols-2 gap-1 text-black bg-white dark:bg-gray-800 dark:text-slate-100`}>
         <div>
           <img
             className="p-8"
