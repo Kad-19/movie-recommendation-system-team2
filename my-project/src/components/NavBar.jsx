@@ -9,7 +9,7 @@ export default function NavBar() {
   const {theme, switchTheme}=useContext(ThemeContext)
   console.log(switchTheme)
   return (
-    <nav className="dark:bg-zinc-800 dark:text-white bg-slate-100 text-slate-950 rounded-b-lg px-4 py-2 sticky top-0 z-10">
+    <nav className="dark:bg-zinc-800 dark:text-white bg-slate-100 text-slate-950 rounded-lg px-4 py-2 sticky top-0 z-10">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">LOGO</h1>
 
