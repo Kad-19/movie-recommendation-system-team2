@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import MovieList from "./MovieList";
 import { Rating } from "@mui/material";
 import { Typography } from "@mui/material";
+import { ThemeContext } from "@/App";
 import VideoPopup from "./VideoPopup";
 import Pagination from "./Pagination";
 function SingleMoviePage() {
@@ -49,22 +50,7 @@ function SingleMoviePage() {
       }
     }
   };
-  //################Functions for darkmode############################
-  const [theme, setTheme]=useState('light')
-useEffect(()=>{
-if(theme=="dark"){
-  document.documentElement.classList.add("dark")
-}else{
-  document.documentElement.classList.remove("dark")
-}
-},
-[theme]
-)
-const switchTheme=()=>{
-  setTheme(theme=="dark"?"light":"dark")
-}
-//#########################################################################
-
+const {theme,switchTheme}=useContext(ThemeContext)
   return (
     <main className=" text-black bg-white dark:bg-gray-800 dark:text-slate-100">
       <button className=' bg-emerald-300 rounded-lg' onClick={switchTheme}> 
