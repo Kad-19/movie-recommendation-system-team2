@@ -62,6 +62,9 @@ function SingleMoviePage() {
             className="p-8 max-h-[500px]"
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt="Movie poster"
+            onError={function (event) {
+              event.target.src = "/image-placeholder.png";
+            }}
           />
         </div>
         <div className="pt-8">
