@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
-    './app/**/*.{js,jsx}',
-    './src/**/*.{js,jsx}',
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
   ],
   prefix: "",
   theme: {
@@ -33,5 +33,29 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-}
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".scorllbar-thin": {
+          scrollbarWidth: "thin",
+          scrollbarColor: "rgb(31, 29, 29) white",
+        },
+        ".scrollbar-webkit": {
+          "&::webkit-scrollbar": {
+            width: "8px",
+          },
+          "&::webkit-scrollbar-track": {
+            background: "white",
+          },
+          "&::webkit-scrollbar-thumb": {
+            backgroundcolor: "rgb(31, 41, 55)",
+            borderRadius: "20px",
+            border: "1px solid white",
+          },
+        },
+      };
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
+};

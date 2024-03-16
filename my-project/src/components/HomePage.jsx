@@ -65,11 +65,11 @@ const HomePage = () => {
       </div>
       <main className=" bg-zinc-200 text-black dark:bg-zinc-800 dark:text-white">
         <section>
-          <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
+          <Typography variant="h5" sx={{ fontWeight: "bold" }} className="p-8">
             Popular
           </Typography>
           <div>
-            <div className="flex overflow-auto space-x-4 p-4">
+            <div className="flex overflow-auto space-x-4 p-4 scrollbar-webkit scorllbar-thin">
               {popularMovies.map((movie) => (
                 <MovieCard key={movie.id} movie={movie} />
               ))}
@@ -77,11 +77,11 @@ const HomePage = () => {
           </div>
         </section>
         <section>
-          <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
+          <Typography variant="h5" sx={{ fontWeight: "bold" }} className="p-8">
             Upcoming
           </Typography>
           <div>
-            <div className="flex overflow-auto space-x-4 p-4">
+            <div className="flex overflow-auto space-x-4 p-4 scrollbar-webkit scorllbar-thin">
               {upcomingMovies.map((movie) => (
                 <MovieCard key={movie.id} movie={movie} />
               ))}
@@ -89,11 +89,11 @@ const HomePage = () => {
           </div>
         </section>
         <section>
-        <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
+          <Typography variant="h5" sx={{ fontWeight: "bold" }} className="p-8">
             Top Rated
-        </Typography>
+          </Typography>
           <div>
-            <div className="flex overflow-auto space-x-4 p-4">
+            <div className="flex overflow-auto space-x-4 p-4 scrollbar-webkit scorllbar-thin">
               {topRatedMovies.map((movie) => (
                 <MovieCard key={movie.id} movie={movie} />
               ))}

@@ -26,7 +26,7 @@ const App = () => {
     //#########################################################################
     
   return (
-      <ThemeContext.Provider value={{theme,switchTheme}}>
+      <ThemeContext.Provider value={{theme,switchTheme}} className="scrollbar-webkit scorllbar-thin">
      {/* {isLogin ? <LoginPage togglePage={togglePage} /> : <SignupPage togglePage={togglePage} />} */}
       <NavBar />
       <AllRouting />

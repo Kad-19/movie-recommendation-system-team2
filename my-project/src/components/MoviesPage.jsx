@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import MovieList from "./MovieList";
 import FilterGroup from "./FilterGroup";
@@ -35,47 +35,47 @@ const MoviesPage = () => {
   const handlePrevious = () => {
     setCurrentPage((prev) => prev - 1);
   };
-const {theme}=useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext);
   return (
     <div className="bg-white dark:bg-zinc-950">
       <header className=" bg-zinc-100 text-gray-950 dark:bg-zinc-800 dark:text-white">
         <div className="mx-4 my-1">
-        <Typography variant="h6">
-          Filter by genre
-        </Typography>
+          <Typography variant="h6">Filter by genre</Typography>
         </div>
 
         <div className="mx-4 my-2 justify-center overflow-x- whitespace-wrap dark:text-white">
           {movieGenres.slice(0, 19).map((item) => {
-            let tailwindConfigeDark=searchGenre(item)
-            ? `bg-zinc-600 rounded-3xl mx-4 my-2 hover:bg-[#457b9d]`
-            : `bg-zinc-700 rounded-3xl mx-4 my-2`
-            let tailwindConfigeLight=searchGenre(item)
-            ? `bg-zinc-600  rounded-3xl mx-4 my-2 hover:bg-[#457b9d]`
-            : `bg-zinc-300 border-2 border-gray-700 text-black rounded-3xl mx-4 my-2`
-            return (<Button
-              variant="outline"
-              className={theme=="dark"?tailwindConfigeDark:tailwindConfigeLight}
-              // {/*A grid that would adjust to the screen size would have been better */}
-              key={item.id}
-              onClick={() => {
-                setCurrentPage(1);
-                if (searchGenre(item)) {
-                  const newList = genreClicked.filter(
-                    (genre) => genre.id != item.id
-                  );
-                  setGenreClicked(newList);
-                } else {
-                  const newList = [...genreClicked, item];
-                  setGenreClicked(newList);
+            let tailwindConfigeDark = searchGenre(item)
+              ? `bg-zinc-600 rounded-3xl mx-4 my-2 hover:bg-[#457b9d]`
+              : `bg-zinc-700 rounded-3xl mx-4 my-2`;
+            let tailwindConfigeLight = searchGenre(item)
+              ? `bg-zinc-600  rounded-3xl mx-4 my-2 hover:bg-[#457b9d]`
+              : `bg-zinc-300 border-2 border-gray-700 text-black rounded-3xl mx-4 my-2`;
+            return (
+              <Button
+                variant="outline"
+                className={
+                  theme == "dark" ? tailwindConfigeDark : tailwindConfigeLight
                 }
-              }}
-            >
-              {item.name}
-            </Button>)
-      }
-    )
-    }
+                // {/*A grid that would adjust to the screen size would have been better */}
+                key={item.id}
+                onClick={() => {
+                  setCurrentPage(1);
+                  if (searchGenre(item)) {
+                    const newList = genreClicked.filter(
+                      (genre) => genre.id != item.id
+                    );
+                    setGenreClicked(newList);
+                  } else {
+                    const newList = [...genreClicked, item];
+                    setGenreClicked(newList);
+                  }
+                }}
+              >
+                {item.name}
+              </Button>
+            );
+          })}
         </div>
       </header>
       <main className="flex bg-slate-100 text-gray-950 dark:bg-zinc-800">
