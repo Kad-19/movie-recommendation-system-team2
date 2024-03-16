@@ -49,10 +49,28 @@ function SingleMoviePage() {
       }
     }
   };
+  //################Functions for darkmode############################
+  const [theme, setTheme]=useState('light')
+useEffect(()=>{
+if(theme=="dark"){
+  document.documentElement.classList.add("dark")
+}else{
+  document.documentElement.classList.remove("dark")
+}
+},
+[theme]
+)
+const switchTheme=()=>{
+  setTheme(theme=="dark"?"light":"dark")
+}
+//#########################################################################
 
   return (
-    <main>
-      <section className={`m-4 grid grid-cols-2 gap-1 text-black bg-white`}>
+    <main className=" text-black bg-white dark:bg-gray-800 dark:text-slate-100">
+      <button className=' bg-emerald-300 rounded-lg' onClick={switchTheme}> 
+        Dark
+      </button>
+      <section className={`m-4 grid grid-cols-2 gap-1 text-black bg-white dark:bg-gray-800 dark:text-slate-100`}>
         <div>
           <img
             className="p-8"
