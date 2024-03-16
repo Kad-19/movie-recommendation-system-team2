@@ -12,12 +12,12 @@ import {
   DropdownMenuItem,
 } from "./ui/dropdown-menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 export default function NavBar() {
   const [show, setShow] = useState(false);
   const { theme, switchTheme } = useContext(ThemeContext);
   return (
-    <nav className="dark:bg-stone-800 dark:text-white bg-stone-300 text-slate-950 px-4 py-2 sticky top-0 z-10">
+    <nav className="dark:bg-gray-900 dark:text-gray-300 bg-gray-400 text-slate-950 px-4 py-2 sticky top-0 z-10">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">CinemaScope</h1>
 
@@ -59,6 +59,13 @@ export default function NavBar() {
               <Typography>Login</Typography>
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/search">
+              <div className="flex justify-center px-3 pt-1">
+                <FontAwesomeIcon icon={faMagnifyingGlass} className="" />
+              </div>
+            </NavLink>
+          </li>
         </ul>
 
         <div className="md:hidden">
@@ -76,18 +83,12 @@ export default function NavBar() {
                 </NavLink>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <NavLink
-                  to="/movies"
-                  className="w-[100%] h-[100%]"
-                >
+                <NavLink to="/movies" className="w-[100%] h-[100%]">
                   Movies
                 </NavLink>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <NavLink
-                  to="/login"
-                  className="w-[100%] h-[100%]"
-                >
+                <NavLink to="/login" className="w-[100%] h-[100%]">
                   Login
                 </NavLink>
               </DropdownMenuItem>

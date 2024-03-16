@@ -38,12 +38,12 @@ const MoviesPage = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <div className="bg-white dark:bg-zinc-950">
-      <header className=" dark:bg-stone-200 dark:text-stone-800 bg-stone-800 text-stone-300 pb-9">
+      <header className=" dark:bg-gray-200 dark:text-gray-800 bg-gray-800 text-gray-300 pb-9">
         <div className="mx-6 py-6">
           <Typography variant="h6">Filter by genre</Typography>
         </div>
 
-        <div className="mx-4 my-2 justify-center overflow-x- whitespace-wrap dark:text-stone-300">
+        <div className="mx-4 my-2 justify-center overflow-x- whitespace-wrap dark:text-gray-300">
           {movieGenres.slice(0, 19).map((item) => {
             let tailwindConfigeDark = searchGenre(item)
               ? `bg-zinc-600 rounded-3xl mx-4 my-2 hover:bg-[#457b9d]`
@@ -78,7 +78,7 @@ const MoviesPage = () => {
           })}
         </div>
       </header>
-      <main className="flex bg-stone-200 text-stone-800 dark:bg-stone-800">
+      <main className="flex bg-gray-200 text-gray-800 dark:bg-gray-800">
         <div>
           <div className="flex justify-end p-10">
             <Button
@@ -122,7 +122,7 @@ const MoviesPage = () => {
           />
         </div>
       </main>
-      <section className="flex justify-end w-[100%] px-[6rem] py-[2rem] bg-stone-300 dark:bg-stone-700">
+      <section className="flex justify-end w-[100%] px-[6rem] py-[2rem] bg-gray-300 dark:bg-gray-700">
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}

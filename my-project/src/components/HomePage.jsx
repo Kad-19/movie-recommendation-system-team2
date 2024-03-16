@@ -54,7 +54,7 @@ const HomePage = () => {
               <Input
                 type="text"
                 placeholder="Search movies"
-                className="rounded-3xl bg-opacity-100 bg-stone-300 text-black dark:bg-stone-800 dark:text-white dark:font-bold"
+                className="rounded-3xl bg-opacity-100 bg-gray-300 text-black dark:bg-gray-800 dark:text-white font-bold"
                 onChange={(e) => {
                   setSearchInput(e.target.value);
                 }}
@@ -63,7 +63,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <main className=" bg-stone-300 text-stone-800 dark:bg-stone-800 dark:text-stone-200">
+      <main className=" bg-gray-300 text-gray-800 dark:bg-gray-800 dark:text-gray-200">
         <section>
           <Typography variant="h5" sx={{ fontWeight: "bold" }} className="p-8">
             Popular
@@ -76,7 +76,7 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-        <section className="bg-stone-600 text-stone-200 dark:text-stone-800 dark:bg-stone-400">
+        <section className="bg-gray-600 text-gray-200 dark:text-gray-800 dark:bg-gray-400">
           <Typography variant="h5" sx={{ fontWeight: "bold" }} className="p-8">
             Upcoming
           </Typography>

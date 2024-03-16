@@ -6,6 +6,7 @@ import { Typography } from "@mui/material";
 import { ThemeContext } from "@/App";
 import VideoPopup from "./VideoPopup";
 import Pagination from "./Pagination";
+import { Button } from "./ui/button";
 function SingleMoviePage() {
   const { movie_id } = useParams();
   const [movie, setMovie] = useState({});
@@ -50,22 +51,23 @@ function SingleMoviePage() {
       }
     }
   };
-const {theme,switchTheme}=useContext(ThemeContext)
+  const { theme, switchTheme } = useContext(ThemeContext);
   return (
-    <main className=" text-black bg-white dark:bg-gray-800 dark:text-slate-100">
-      <button className=' bg-emerald-300 rounded-lg' onClick={switchTheme}> 
-        Dark
-      </button>
-      <section className={`m-4 grid grid-cols-2 gap-1 text-black bg-white dark:bg-gray-800 dark:text-slate-100`}>
-        <div>
+    <main className=" text-gray-800 bg-gray-100 dark:bg-gray-800 dark:text-slate-100">
+      <section
+        className={`grid grid-cols-2 dark:bg-gray-800 dark:text-slate-100 w-[90%]`}
+      >
+        <div className=" md:row-span-2 flex justify-center items-center">
           <img
-            className="p-8"
+            className="p-8 max-h-[500px]"
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt="Movie poster"
           />
         </div>
-        <div className="p-4">
-          <Typography variant="subtitle1">{movie.title}</Typography>
+        <div className="pt-8">
+          <Typography variant="h3" className="">
+            {movie.title}
+          </Typography>
 
           <Typography variant="subtitle1">{movie.release_date}</Typography>
 
@@ -79,19 +81,28 @@ const {theme,switchTheme}=useContext(ThemeContext)
               precision={0.05}
             />
           </Typography>
-          <Typography variant="subtitle1">{movie.tagline}</Typography>
-
-          <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+          <Typography variant="h6" className="py-3">
+            {movie.tagline}
+          </Typography>
+        </div>
+        <div className="">
+          <Typography variant="h6" sx={{ fontWeight: "bold" }} className="py-4">
             Overview
           </Typography>
 
-          <Typography variant="body2">{movie.overview}</Typography>
-
-          <VideoPopup link={`https://www.youtube.com/embed/${trailer}`} />
+          <Typography variant="subtitle1" className="pb-4">
+            {movie.overview}
+          </Typography>
+          <div className="flex gap-3">
+            <VideoPopup link={`https://www.youtube.com/embed/${trailer}`} />
+            <Button>Add to WishList</Button>
+          </div>
         </div>
       </section>
-      <section>
-        <h2>Related Movies</h2>
+      <section className=" bg-gray-300 dark:bg-gray-800">
+        <Typography variant="h5" sx={{ fontWeight: "bold" }} className="p-8 bg-gray-400 dark:bg-gray-700">
+          Related Movies
+        </Typography>
         <MovieList
           type=""
           search=""
@@ -101,7 +112,7 @@ const {theme,switchTheme}=useContext(ThemeContext)
           total_pages_setter={setTotalPages}
         />
       </section>
-      <section className="flex justify-end w-[100%] pr-[3rem]">
+      <section className="flex justify-end w-[100%] px-[6rem] py-[2rem] bg-gray-200 dark:bg-gray-700">
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}

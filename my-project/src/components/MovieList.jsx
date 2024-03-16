@@ -5,7 +5,14 @@ import "./MovieList.css";
 import MovieCard from "./MovieCard";
 import FilterGroup from "./FilterGroup";
 
-const MovieList = ({ type, movie_id, search, genre, page, total_pages_setter }) => {
+const MovieList = ({
+  type,
+  movie_id,
+  search,
+  genre,
+  page,
+  total_pages_setter,
+}) => {
   const [movies, setMovies] = useState([]);
   const [filterMovies, setFilterMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
@@ -89,7 +96,7 @@ const MovieList = ({ type, movie_id, search, genre, page, total_pages_setter }) 
     setSort((prev) => ({ ...prev, [name]: value }));
   };
   return (
-    <section className="movie_list" id={type}>
+    <section className="movie_list pt-7" id={type}>
       <div className="movie_cards">
         {filterMovies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
