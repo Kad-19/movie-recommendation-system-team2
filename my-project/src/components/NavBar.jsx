@@ -7,7 +7,6 @@ import { ThemeContext } from "@/App";
 export default function NavBar() {
   const [show, setShow] = useState(false);
   const {theme, switchTheme}=useContext(ThemeContext)
-  console.log(switchTheme)
   return (
     <nav className="dark:bg-zinc-800 dark:text-white bg-slate-100 text-slate-950 rounded-lg px-4 py-2 sticky top-0 z-10">
       <div className="flex justify-between items-center">

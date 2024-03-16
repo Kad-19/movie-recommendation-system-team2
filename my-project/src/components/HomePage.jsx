@@ -48,7 +48,7 @@ const HomePage = () => {
               <Input
                 type="text"
                 placeholder="Search"
-                className="rounded-3xl bg-opacity-100 bg-white text-black dark:bg-zinc-800 dark:text-white"
+                className="rounded-3xl bg-opacity-100 bg-zinc-100 text-black dark:bg-zinc-800 dark:text-white dark:font-bold"
                 onChange={(e) => {
                   setSearchInput(e.target.value);
                 }}
@@ -57,7 +57,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <main className=" bg-white text-black dark:bg-zinc-800 dark:text-white">
+      <main className=" bg-zinc-200 text-black dark:bg-zinc-800 dark:text-white">
         <section>
           <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
             Popular

@@ -26,14 +26,11 @@ const App = () => {
     //#########################################################################
     
   return (
-    <div>
       <ThemeContext.Provider value={{theme,switchTheme}}>
      {/* {isLogin ? <LoginPage togglePage={togglePage} /> : <SignupPage togglePage={togglePage} />} */}
       <NavBar />
       <AllRouting />
       </ThemeContext.Provider>
-
-    </div>
   );
 };
 

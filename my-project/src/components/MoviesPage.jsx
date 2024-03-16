@@ -36,9 +36,8 @@ const MoviesPage = () => {
     setCurrentPage((prev) => prev - 1);
   };
 const {theme}=useContext(ThemeContext)
-console.log(theme)
   return (
-    <div>
+    <div className="bg-white dark:bg-zinc-950">
       <header className=" bg-zinc-100 text-gray-950 dark:bg-zinc-800 dark:text-white">
         <div className="mx-4 my-1">
         <Typography variant="h6">
@@ -46,7 +45,7 @@ console.log(theme)
         </Typography>
         </div>
 
-        <div className="m-4 justify-center overflow-x- whitespace-wrap dark:text-white">
+        <div className="mx-4 my-2 justify-center overflow-x- whitespace-wrap dark:text-white">
           {movieGenres.slice(0, 19).map((item) => {
             let tailwindConfigeDark=searchGenre(item)
             ? `bg-zinc-600 rounded-3xl mx-4 my-2 hover:bg-[#457b9d]`
