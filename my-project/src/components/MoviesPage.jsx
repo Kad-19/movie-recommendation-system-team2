@@ -134,7 +134,7 @@ console.log(theme)
           />
         </div>
       </main>
-      <section className="flex justify-end w-[100%] pr-[3rem]">
+      <section className="flex justify-end w-[100%] pr-[3rem] bg-zinc-100 dark:bg-zinc-700">
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
