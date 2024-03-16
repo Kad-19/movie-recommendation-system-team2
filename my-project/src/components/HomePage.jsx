@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 import MovieList from "./MovieList";
 import MovieCard from "./MovieCard";
 
+
 const HomePage = () => {
   const [searchInput, setSearchInput] = useState("");
   const [popularMovies, setPopularMovies] = useState([]);
@@ -41,12 +42,18 @@ const HomePage = () => {
   return (
     <div>
       <div className=" w-[100%] pt-[20px] pb-[100px] page_top bg-bottom mb-[20px]">
-        <div className="flex flex-col m-auto w-[50%] my-[100px] disappear-md">
+        <div className="flex flex-col m-auto w-[75%] my-[70px]">
+          <div className="my-[10px]">
+            <h1 className="text-[4rem]">Welcome</h1>
+            <p className="text-[2rem]">
+              Millions of Movies to descover. Explore Now.
+            </p>
+          </div>
           <div className="flex gap-[10px]">
             <form onSubmit={handleSubmit} className="w-[100%]">
               <Input
                 type="text"
-                placeholder="Search"
+                placeholder="Search movies"
                 className="rounded-3xl bg-opacity-70 border-none bg-white text-black"
                 onChange={(e) => {
                   setSearchInput(e.target.value);
@@ -58,7 +65,7 @@ const HomePage = () => {
       </div>
       <main>
         <section>
-          <h2>Popular</h2>
+          <h2 className="p-4 text-3xl">Popular</h2>
           <div>
             <div className="flex overflow-auto space-x-4 p-4">
               {popularMovies.map((movie) => (
@@ -68,7 +75,7 @@ const HomePage = () => {
           </div>
         </section>
         <section>
-          <h2>Upcoming</h2>
+          <h2 className="p-4 text-3xl">Upcoming</h2>
           <div>
             <div className="flex overflow-auto space-x-4 p-4">
               {upcomingMovies.map((movie) => (
@@ -78,7 +85,7 @@ const HomePage = () => {
           </div>
         </section>
         <section>
-          <h2>Top Rated</h2>
+          <h2 className="p-4 text-3xl">Top Rated</h2>
           <div>
             <div className="flex overflow-auto space-x-4 p-4">
               {topRatedMovies.map((movie) => (
