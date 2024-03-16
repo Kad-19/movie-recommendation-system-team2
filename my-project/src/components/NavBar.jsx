@@ -3,14 +3,17 @@ import { useState,
 import { NavLink } from "react-router-dom";
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
+import AnimationOutlinedIcon from '@mui/icons-material/AnimationOutlined';
 import { ThemeContext } from "@/App";
+import { Typography } from "@mui/material";
 export default function NavBar() {
   const [show, setShow] = useState(false);
   const {theme, switchTheme}=useContext(ThemeContext)
   return (
     <nav className="dark:bg-zinc-800 dark:text-white bg-slate-100 text-slate-950 rounded-lg px-4 py-2 sticky top-0 z-10">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">LOGO</h1>
+        <h1 className="text-2xl font-bold">
+        </h1>
 
         <ul className="md:flex space-x-4 hidden ">
           <li>
@@ -20,22 +23,30 @@ export default function NavBar() {
           </li>
           <li>
             <NavLink to="/" className="hover:underline">
-              Home
+              <Typography>
+                Home
+              </Typography>
             </NavLink>
           </li>
           <li>
             <NavLink to="/movies" className="hover:underline">
+            <Typography>
               Movies
+            </Typography> 
             </NavLink>
           </li>
           <li>
             <a href="#" className="hover:underline">
+            <Typography>
               Wish-List
+            </Typography> 
             </a>
           </li>
           <li>
             <NavLink to="/login" className="hover:underline">
-              Login
+              <Typography>
+                Login
+              </Typography>
             </NavLink>
           </li>
         </ul>

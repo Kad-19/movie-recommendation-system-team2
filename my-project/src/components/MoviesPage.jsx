@@ -78,7 +78,7 @@ const {theme}=useContext(ThemeContext)
     }
         </div>
       </header>
-      <main className="flex bg-slate-100 text-gray-950 dark:bg-zinc-800 dark:bg-slate-50">
+      <main className="flex bg-slate-100 text-gray-950 dark:bg-zinc-800">
         {/* <div className="my-[50px] bg-black">
           <div className="align_center">
             <select name="by" id="" className="movie_sorting text-black">
