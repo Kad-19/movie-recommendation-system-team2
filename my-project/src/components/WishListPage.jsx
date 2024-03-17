@@ -41,11 +41,9 @@ const WishListPage = () => {
   }, []);
 
   console.log(MovieList)
-  const currentMovie = MovieList.map((movie) => {
-    if(movie.userId== auth?.currentUser?.uid){
-    return (movie.movieID);
-    }
-  })
+  const currentMovie = MovieList.filter((movie) => {
+    return movie.userId === auth?.currentUser?.uid;
+  }).map((movie) => movie.movieID);
   console.log(currentMovie)
 
   useEffect(()=>{
