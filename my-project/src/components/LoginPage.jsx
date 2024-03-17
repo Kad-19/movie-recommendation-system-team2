@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
+import { Typography } from '@mui/material';
 
 const ForgotPasswordPage = () => {
     const [resetMethod, setResetMethod] = useState('');
@@ -23,22 +23,29 @@ const ForgotPasswordPage = () => {
     };
 
     return (
-        <div>
-          
-            <div style={{paddingLeft:'800px'}} className="flex items-center justify-center min-h-screen ">
-                <div className="bg-white p-8 rounded-2xl shadow-2xl border border-gray-300">
-                <NavLink to="/signup" className="text-white bg-blue-500 ml-64 mb-8">Sign In</NavLink>
-                    <h2 className="text-3xl text-black font-bold mb-8">Forgot Your Password?</h2>
+            <div  className="w-full items-center float-right justify-center min-h-screen bg-zinc-50 dark:bg-zinc-700  ">
+                <div className="bg-stone-50 p-8 rounded-xl m-8 w-max-2/12 sm:m-24 lg:mr-48 shadow-2xl border border-gray-300
+                dark:bg-zinc-800 dark:text-white">
+                <NavLink to="/signup" className=" float-end bg-blue-500 text-white rounded-md px-1">
+                    <Typography variant="h6" component="">
+                        Sign In
+                    </Typography>
+                </NavLink>
+                <br/>
+                <Typography variant="h5" className='py-8'component="">
+                    Forgot Your Password?
+                </Typography>
+                    
                     <form onSubmit={handleResetSubmit} className="max-w-md">
                         <div className="mb-6">
-                            <p className="mb-4 text-black">How would you like to reset your password?</p>
+                            <p className="mb-4">How would you like to reset your password?</p>
                             <div className="flex items-center mb-2">
                                 <input type="radio" id="emailMethod" name="resetMethod" value="email" checked={resetMethod === 'email'} onChange={handleResetMethodChange} />
-                                <label htmlFor="emailMethod" className="ml-2 text-black">Email</label>
+                                <label htmlFor="emailMethod" className="ml-2">Email</label>
                             </div>
                             <div className="flex items-center mb-2">
                                 <input type="radio" id="textMethod" name="resetMethod" value="text" checked={resetMethod === 'text'} onChange={handleResetMethodChange} />
-                                <label htmlFor="textMethod" className="ml-2 text-black">Text Message</label>
+                                <label htmlFor="textMethod" className="ml-2">Text Message</label>
                             </div>
                         </div>
                         {resetMethod === 'email' && (
@@ -67,8 +74,6 @@ const ForgotPasswordPage = () => {
                                     required
                                     className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                                 />
-                               
-                               
                             </div>
                         )}
                         <button type="submit" className="w-full px-4 py-2 mb-6 mt-4 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Send Instructions</button>
@@ -76,7 +81,6 @@ const ForgotPasswordPage = () => {
                     </form>
                 </div>
             </div>
-        </div>
     );
 };
 const LoginPage = () => {
@@ -95,13 +99,14 @@ const LoginPage = () => {
     };
 
     return (
-        <div>
+        <div className=''>
             {isForgotPassword ? (
                 <ForgotPasswordPage/>
             ) : (
-                <div style={{ marginLeft: '800px' }} className="flex items-center justify-center min-h-screen">
-                    <div className="bg-white p-8 rounded-2xl shadow-2xl border border-gray-300">
-                        <h2 className="text-3xl text-black font-bold mb-8">Sign In</h2>
+                <div  className="w-full items-center float-right justify-center min-h-screen bg-zinc-50 dark:bg-zinc-700  ">
+                <div className="bg-stone-50 p-8 rounded-xl m-8 w-max-2/12 sm:m-24 lg:mr-48 shadow-2xl border border-gray-300
+                dark:bg-zinc-800 dark:text-white">
+                        <h2 className="font-bold mb-8">Sign In</h2>
                         <form onSubmit={handleLogin} className="max-w-md">
                             <div className="mb-4">
                                 <label htmlFor="email" className="block text-gray-700">Email:</label>
