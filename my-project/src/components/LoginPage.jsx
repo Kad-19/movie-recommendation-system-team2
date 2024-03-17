@@ -133,7 +133,7 @@ const LoginPage = () => {
 
     // Add your login logic here------------------------------
 
-    alert("Login logic goes here");
+    alert("Login successful");
 
     const logIn = async () => {
       try {
