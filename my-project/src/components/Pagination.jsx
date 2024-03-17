@@ -2,7 +2,7 @@ import React from "react";
 
 const Pagination = ({ currentPage, totalPages, onNext, onPrevious }) => {
   return (
-    <div className="flex justify-between mt-4">
+    <div className="flex justify-between items-center mt-4">
       <p className="px-4 py-2 text-gray-950 text-lg dark:text-gray-200 ">
         Pages
       </p>
