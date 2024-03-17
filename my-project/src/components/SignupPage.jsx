@@ -11,6 +11,9 @@ const SignupPage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [errorOccured, setErrorOccured] = useState(false);
+
+
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -32,7 +35,7 @@ const SignupPage = () => {
     const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/;
     if (!passwordRegex.test(password)) {
       setError(
-        "Password must contain at least one uppercase letter, one special character, and be at least 10 characters long"
+        "Password must contain at least one uppercase letter, one special character, and be at least 8 characters long"
       );
       return;
     }
@@ -43,8 +46,9 @@ const SignupPage = () => {
     const signUp = async () => {
       try {
         await createUserWithEmailAndPassword(auth, email, password);
+        navigate("/login");
       } catch (err) {
-        console.error(err);
+        setErrorOccured(true);
       }
     };
     signUp();
@@ -109,6 +113,8 @@ const SignupPage = () => {
           >
             Create Account
           </button>
+          {errorOccured? <p className="text-red-500">An Error Occured</p>: ""}
+
           <h4 className="text-l mt-8 float-end">
             Already have an account?{" "}
             <NavLink to="/login" className="mt-4 p-2 rounded bg-blue-400">

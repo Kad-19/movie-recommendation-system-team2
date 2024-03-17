@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
@@ -13,9 +13,17 @@ import {
 } from "./ui/dropdown-menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { auth } from "@/firebase";
+
 export default function NavBar() {
   const [show, setShow] = useState(false);
   const { theme, switchTheme } = useContext(ThemeContext);
+  const [isLogedin, setIsLogedin] = useState(false);
+  useEffect(() => {
+    if (auth?.currentUser?.uid) {
+      setIsLogedin(true);
+    }
+  });
   return (
     <nav className="dark:bg-gray-900 dark:text-gray-300 bg-gray-400 text-slate-950 px-4 py-2 sticky top-0 z-10">
       <div className="flex justify-between items-center">
@@ -44,19 +52,25 @@ export default function NavBar() {
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/wishList"
-              className="hover:font-semibold transition-all duration-300 ease-in-out"
-            >
-              <Typography>Wish-List</Typography>
-            </NavLink>
+            {auth?.currentUser?.uid ? (
+              <NavLink
+                to="/wishList"
+                className="hover:font-semibold transition-all duration-300 ease-in-out"
+              >
+                <Typography>Wish-List</Typography>
+              </NavLink>
+            ) : (
+              ""
+            )}
           </li>
           <li>
             <NavLink
               to="/login"
               className="hover:font-semibold transition-all duration-300 ease-in-out"
             >
-              <Typography>Login</Typography>
+              <Typography>
+                {auth?.currentUser?.uid ? "Logout" : "Login"}
+              </Typography>
             </NavLink>
           </li>
           <li>

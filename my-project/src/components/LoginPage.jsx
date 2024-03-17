@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 //Firebase ---------------
 
@@ -125,6 +126,8 @@ const LoginPage = () => {
   const [isForgotPassword, setIsForgotPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorOccured, setErrorOccured] = useState(false);
+  const navigate = useNavigate();
 
   const handleForgotPassword = () => {
     setIsForgotPassword(true); // Set state to indicate user is on forgot password page
@@ -133,20 +136,16 @@ const LoginPage = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Add your login logic here------------------------------
-
-    alert("Login logic goes here");
 
     const logIn = async () => {
       try {
         await signInWithEmailAndPassword(auth, email, password);
+        navigate("/");
       } catch (err) {
-        console.error(err);
+        setErrorOccured(true);
       }
     };
     logIn();
-    console.log(auth?.currentUser?.email);
-
     //---------------------------------------------
   };
 
@@ -204,6 +203,7 @@ const LoginPage = () => {
               >
                 Login
               </button>
+              {errorOccured? <p className="text-red-500">An Error Occured: Either your email or password is incorrect</p>: ""}
             </form>
             <h4
               className="mt-4 text-red-500 cursor-pointer"
