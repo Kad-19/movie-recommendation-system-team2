@@ -3,7 +3,7 @@ import MovieCard from "./MovieCard";
 import "./MovieList.css";
 
 //FIREBASE----------------
-import { DB } from "@/firebase";
+import { DB,auth } from "@/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import { data } from "autoprefixer";
 
@@ -42,8 +42,11 @@ const WishListPage = () => {
 
   console.log(MovieList)
   const currentMovie = MovieList.map((movie) => {
+    if(movie.userId== auth?.currentUser?.uid){
     return (movie.movieID);
+    }
   })
+  console.log(currentMovie)
 
   useEffect(()=>{
     setMovieIDs([...currentMovie]);
