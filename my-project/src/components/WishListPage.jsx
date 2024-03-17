@@ -26,7 +26,7 @@ const WishListPage = () => {
   };
   return (
     <section className="movie_list pt-7">
-      <div className="movie_cards">
+      <div className="movie_cards min-h-screen">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}

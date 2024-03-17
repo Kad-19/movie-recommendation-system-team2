@@ -5,6 +5,7 @@ import SignupPage from "./components/SignupPage";
 import HomePage from "./components/HomePage";
 import NavBar from "./components/NavBar";
 import AllRouting from "./components/AllRouting";
+import Footer from "./components/Footer";
 export const ThemeContext = createContext(null);
 const App = () => {
   //################Functions for darkmode############################
@@ -29,6 +30,7 @@ const App = () => {
       {/* {isLogin ? <LoginPage togglePage={togglePage} /> : <SignupPage togglePage={togglePage} />} */}
       <NavBar />
       <AllRouting />
+      <Footer/>
     </ThemeContext.Provider>
   );
 };
