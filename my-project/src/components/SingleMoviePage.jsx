@@ -13,6 +13,11 @@ import {addDoc,collection} from 'firebase/firestore'
 import { DB, auth } from "@/firebase";
 
 
+<<<<<<< HEAD
+=======
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
+>>>>>>> 6fe04ef998530be0f9267dfefd2045efc7faba8c
 function SingleMoviePage() {
   const { movie_id } = useParams();
   const [movie, setMovie] = useState({});
@@ -123,7 +128,14 @@ function SingleMoviePage() {
           </Typography>
           <div className="flex gap-3">
             <VideoPopup link={`https://www.youtube.com/embed/${trailer}`} />
+<<<<<<< HEAD
             <Button onClick={addToWhish}>Add to WishList</Button>
+=======
+            <Button onClick={addToWhish}>
+              <FontAwesomeIcon icon={faSquarePlus} className="pr-2" />
+              Add to WishList
+            </Button>
+>>>>>>> 6fe04ef998530be0f9267dfefd2045efc7faba8c
           </div>
         </div>
       </section>
