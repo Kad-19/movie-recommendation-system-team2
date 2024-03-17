@@ -7,17 +7,14 @@ import { ThemeContext } from "@/App";
 import VideoPopup from "./VideoPopup";
 import Pagination from "./Pagination";
 import { Button } from "./ui/button";
-<<<<<<< HEAD
 
 //FIREBASE ----------------
 import {addDoc,collection} from 'firebase/firestore'
 import { DB, auth } from "@/firebase";
 
 
-=======
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
->>>>>>> 2dc5b78840fce6c1033b5fe75d709c26564b4ca2
 function SingleMoviePage() {
   const { movie_id } = useParams();
   const [movie, setMovie] = useState({});
@@ -124,14 +121,10 @@ function SingleMoviePage() {
           <div className="pb-4">{movie.overview}</div>
           <div className="flex gap-3">
             <VideoPopup link={`https://www.youtube.com/embed/${trailer}`} />
-<<<<<<< HEAD
-            <Button onClick={addToWhish}>Add to WishList</Button>
-=======
-            <Button>
+            <Button onClick={addToWhish}>
               <FontAwesomeIcon icon={faSquarePlus} className="pr-2" />
               Add to WishList
             </Button>
->>>>>>> 2dc5b78840fce6c1033b5fe75d709c26564b4ca2
           </div>
         </div>
       </section>
