@@ -87,7 +87,7 @@ To run the Movie Recommendation System, run the following command
 
 ## Screenshots
 
-![App Screenshot](https://github.com/fenitamas/kaku-tools/blob/main/kaku/Screenshot%20(5).png?raw=true)
+![App Screenshot](https://github.com/fenitamas/Image_Gallery/blob/main/Screenshot%20(5).png?raw=true)
 ![App Screenshot](https://github.com/fenitamas/kaku-tools/blob/main/kaku/Screenshot%20(3).png?raw=true)
 
 
