@@ -52,7 +52,7 @@ const SearchResultsPage = () => {
           )}
         </div>
       </div>
-      <section className="flex justify-end w-[100%] px-[6rem] py-[2rem] bg-gray-300 dark:bg-gray-700">
+      <section className="flex justify-end w-[100%] md:px-[6rem] px-4 py-[2rem] bg-gray-300 dark:bg-gray-700">
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
