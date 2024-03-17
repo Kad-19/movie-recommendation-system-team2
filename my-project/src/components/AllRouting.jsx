@@ -6,6 +6,7 @@ import LoginPage from './LoginPage'
 import SignupPage from './SignupPage'
 import SearchResultsPage from './SearchResultsPage'
 import MoviesPage from './MoviesPage'
+import WishListPage from './WishListPage'
 
 
 const AllRouting = () => {
@@ -18,6 +19,7 @@ const AllRouting = () => {
             <Route path='/signup' element={<SignupPage/>}/>
             <Route path='/search/:query?' element={<SearchResultsPage/>}/>
             <Route path='/movies' element={<MoviesPage/>}/>
+            <Route path='/wishList' element={<WishListPage/>}/>
             <Route path='*' element={<div>No page found</div>}/>
         </Routes>
     </div>

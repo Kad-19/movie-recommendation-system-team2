@@ -44,12 +44,12 @@ export default function NavBar() {
             </NavLink>
           </li>
           <li>
-            <a
-              href="#"
+            <NavLink
+              to="/wishList"
               className="hover:font-semibold transition-all duration-300 ease-in-out"
             >
               <Typography>Wish-List</Typography>
-            </a>
+            </NavLink>
           </li>
           <li>
             <NavLink

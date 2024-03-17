@@ -9,7 +9,7 @@ const VideoPopup = ({ link }) => {
         onClick={() => setShowVideo(true)}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
-        Play Trailor
+        Play Trailer
       </button>
       {showVideo && (
         <div className="fixed inset-0 z-10 flex w-[100%]">
