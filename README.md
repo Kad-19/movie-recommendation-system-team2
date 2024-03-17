@@ -59,7 +59,7 @@ To run the Movie Recommendation System, run the following command
 + The system returns a list of movies matching the search criteria.
 ### Detailed Movie Information:
 + Users can view comprehensive information about a selected movie, including title, release year, poster image, and overview providing a brief summary of the movie.
-Related Movie Recommendations:
+### Related Movie Recommendations:
 + The system suggests related movies based on the selected movie's genre, providing users with personalized recommendations.
 ### Filtering by Genre:
 + Users can filter movies by genre to discover specific types of films tailored to their interests.
