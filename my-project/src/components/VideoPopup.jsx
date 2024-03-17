@@ -1,3 +1,5 @@
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
 const VideoPopup = ({ link }) => {
@@ -9,6 +11,7 @@ const VideoPopup = ({ link }) => {
         onClick={() => setShowVideo(true)}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
+        <FontAwesomeIcon icon={faPlay} className="pr-2" />
         Play Trailer
       </button>
       {showVideo && (
@@ -23,7 +26,7 @@ const VideoPopup = ({ link }) => {
             </button>
             <iframe
               title="Video"
-              className="w-3/4 h-3/4"
+              className="md:w-3/4 md:h-3/4 h-1/3 w-[100%]"
               src={link}
               frameBorder="0"
               allowFullScreen

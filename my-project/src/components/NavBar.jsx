@@ -68,10 +68,15 @@ export default function NavBar() {
           </li>
         </ul>
 
-        <div className="md:hidden">
-          <button onClick={switchTheme} className="mr-5">
+        <div className="md:hidden flex">
+          <button onClick={switchTheme} className="mr-3">
             {theme == "dark" ? <LightModeIcon /> : <DarkModeIcon />}
           </button>
+          <NavLink to="/search">
+            <div className="flex justify-center pr-3 pt-1">
+              <FontAwesomeIcon icon={faMagnifyingGlass} className="" />
+            </div>
+          </NavLink>
           <DropdownMenu>
             <DropdownMenuTrigger>
               <FontAwesomeIcon icon={faBars} />
@@ -85,6 +90,14 @@ export default function NavBar() {
               <DropdownMenuItem>
                 <NavLink to="/movies" className="w-[100%] h-[100%]">
                   Movies
+                </NavLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <NavLink
+                  to="/wishList"
+                  className="hover:font-semibold transition-all duration-300 ease-in-out"
+                >
+                  <Typography>Wish-List</Typography>
                 </NavLink>
               </DropdownMenuItem>
               <DropdownMenuItem>

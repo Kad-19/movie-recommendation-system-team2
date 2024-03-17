@@ -7,12 +7,17 @@ import { ThemeContext } from "@/App";
 import VideoPopup from "./VideoPopup";
 import Pagination from "./Pagination";
 import { Button } from "./ui/button";
+<<<<<<< HEAD
 
 //FIREBASE ----------------
 import {addDoc,collection} from 'firebase/firestore'
 import { DB, auth } from "@/firebase";
 
 
+=======
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
+>>>>>>> 2dc5b78840fce6c1033b5fe75d709c26564b4ca2
 function SingleMoviePage() {
   const { movie_id } = useParams();
   const [movie, setMovie] = useState({});
@@ -80,7 +85,7 @@ function SingleMoviePage() {
   return (
     <main className=" text-gray-800 bg-gray-100 dark:bg-gray-800 dark:text-slate-100">
       <section
-        className={`grid grid-cols-2 dark:bg-gray-800 dark:text-slate-100 w-[90%]`}
+        className={`grid grid-cols-2 dark:bg-gray-800 dark:text-slate-100 md:w-[90%]`}
       >
         <div className=" md:row-span-2 flex justify-center items-center">
           <img
@@ -93,9 +98,7 @@ function SingleMoviePage() {
           />
         </div>
         <div className="pt-8">
-          <Typography variant="h3" className="">
-            {movie.title}
-          </Typography>
+          <div className="md:text-[3rem] font-semibold">{movie.title}</div>
 
           <Typography variant="subtitle1">{movie.release_date}</Typography>
 
@@ -113,22 +116,31 @@ function SingleMoviePage() {
             {movie.tagline}
           </Typography>
         </div>
-        <div className="">
+        <div className="col-span-2 p-5 md:px-0 md:col-span-1">
           <Typography variant="h6" sx={{ fontWeight: "bold" }} className="py-4">
             Overview
           </Typography>
 
-          <Typography variant="subtitle1" className="pb-4">
-            {movie.overview}
-          </Typography>
+          <div className="pb-4">{movie.overview}</div>
           <div className="flex gap-3">
             <VideoPopup link={`https://www.youtube.com/embed/${trailer}`} />
+<<<<<<< HEAD
             <Button onClick={addToWhish}>Add to WishList</Button>
+=======
+            <Button>
+              <FontAwesomeIcon icon={faSquarePlus} className="pr-2" />
+              Add to WishList
+            </Button>
+>>>>>>> 2dc5b78840fce6c1033b5fe75d709c26564b4ca2
           </div>
         </div>
       </section>
       <section className=" bg-gray-300 dark:bg-gray-800">
-        <Typography variant="h5" sx={{ fontWeight: "bold" }} className="p-8 bg-gray-400 dark:bg-gray-700">
+        <Typography
+          variant="h5"
+          sx={{ fontWeight: "bold" }}
+          className="p-8 bg-gray-400 dark:bg-gray-700"
+        >
           Related Movies
         </Typography>
         <MovieList
@@ -140,7 +152,7 @@ function SingleMoviePage() {
           total_pages_setter={setTotalPages}
         />
       </section>
-      <section className="flex justify-end w-[100%] px-[6rem] py-[2rem] bg-gray-200 dark:bg-gray-700">
+      <section className="flex justify-end w-[100%] md:px-[6rem] px-4 py-[2rem] bg-gray-200 dark:bg-gray-700">
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}

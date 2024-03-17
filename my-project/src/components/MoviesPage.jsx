@@ -43,11 +43,11 @@ const MoviesPage = () => {
           <Typography variant="h6">Filter by genre</Typography>
         </div>
 
-        <div className="mx-4 my-2 justify-center overflow-x- whitespace-wrap dark:text-gray-300">
+        <div className="mx-4 my-2 justify-center overflow-x- whitespace-wrap dark:text-gray-300 text-gray-300">
           {movieGenres.slice(0, 19).map((item) => {
             let tailwindConfigeDark = searchGenre(item)
-              ? `bg-zinc-600 rounded-3xl mx-4 my-2 hover:bg-[#457b9d]`
-              : `bg-zinc-700 rounded-3xl mx-4 my-2`;
+              ? `bg-zinc-300 rounded-3xl mx-4 my-2 hover:bg-[#457b9d]`
+              : `bg-zinc-600 rounded-3xl mx-4 my-2`;
             let tailwindConfigeLight = searchGenre(item)
               ? `bg-zinc-600  rounded-3xl mx-4 my-2 hover:bg-[#457b9d]`
               : `bg-zinc-300 border-2 border-gray-700 text-black rounded-3xl mx-4 my-2`;
@@ -57,7 +57,6 @@ const MoviesPage = () => {
                 className={
                   theme == "dark" ? tailwindConfigeDark : tailwindConfigeLight
                 }
-                // {/*A grid that would adjust to the screen size would have been better */}
                 key={item.id}
                 onClick={() => {
                   setCurrentPage(1);
@@ -80,7 +79,7 @@ const MoviesPage = () => {
       </header>
       <main className="flex bg-gray-200 text-gray-800 dark:bg-gray-800">
         <div>
-          <div className="flex justify-end p-10">
+          <div className="flex justify-end pt-10">
             <Button
               variant="link"
               className="text-lg"
@@ -122,7 +121,7 @@ const MoviesPage = () => {
           />
         </div>
       </main>
-      <section className="flex justify-end w-[100%] px-[6rem] py-[2rem] bg-gray-300 dark:bg-gray-700">
+      <section className="flex justify-end w-[100%] md:px-[6rem] px-4 py-[2rem] bg-gray-300 dark:bg-gray-700">
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
