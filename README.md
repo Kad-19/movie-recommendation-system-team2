@@ -54,21 +54,20 @@ To run the Movie Recommendation System, run the following command
 
 ## Features
 
-###Movie Search Functionality:
+### Movie Search Functionality:
 + Users can search for movies by title.
 + The system returns a list of movies matching the search criteria.
-###Detailed Movie Information:
+### Detailed Movie Information:
 + Users can view comprehensive information about a selected movie, including title, release year, poster image, and overview providing a brief summary of the movie.
 Related Movie Recommendations:
 + The system suggests related movies based on the selected movie's genre, providing users with personalized recommendations.
-###Filtering by Genre:
-
+### Filtering by Genre:
 + Users can filter movies by genre to discover specific types of films tailored to their interests.
-###Play Trailers:
+### Play Trailers:
 + Users can play trailers for each movie directly within the application, enhancing their browsing experience and providing additional insights into the movie.
-###User-Friendly Interface:
+### User-Friendly Interface:
 + The application features an intuitive and visually appealing user interface designed for ease of use.
-###Favorite/Watch List Management:
+### Favorite/Watch List Management:
 + Users can add movies to a favorite or watch list for future reference, with the ability to view and manage their lists.
 
 
