@@ -120,7 +120,7 @@ const ForgotPasswordPage = () => {
     </div>
   );
 };
-const LoginPage = () => {
+const LoginPage = ({isLogin, setIsLogin}) => {
   const [isForgotPassword, setIsForgotPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -138,6 +138,7 @@ const LoginPage = () => {
     const logIn = async () => {
       try {
         await signInWithEmailAndPassword(auth, email, password);
+        setIsLogin(true);
         navigate("/");
       } catch (err) {
         setErrorOccured(true);

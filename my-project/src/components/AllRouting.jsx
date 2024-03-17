@@ -9,13 +9,13 @@ import MoviesPage from './MoviesPage'
 import WishListPage from './WishListPage'
 
 
-const AllRouting = () => {
+const AllRouting = ({isLogin, setIsLogin}) => {
   return (
     <div>
         <Routes>
             <Route path='/' element={<HomePage/>}/>
             <Route path='/movie/:movie_id' element={<SingleMoviePage/>}/>
-            <Route path='/login' element={<LoginPage/>}/>
+            <Route path='/login' element={<LoginPage  isLogin={isLogin} setIsLogin={setIsLogin}/>}/>
             <Route path='/signup' element={<SignupPage/>}/>
             <Route path='/search/:query?' element={<SearchResultsPage/>}/>
             <Route path='/movies' element={<MoviesPage/>}/>

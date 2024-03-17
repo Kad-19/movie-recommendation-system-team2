@@ -8,6 +8,7 @@ import AllRouting from "./components/AllRouting";
 import Footer from "./components/Footer";
 export const ThemeContext = createContext(null);
 const App = () => {
+  const [isLogin, setIsLogin] = useState(false);
   //################Functions for darkmode############################
   const [theme, setTheme] = useState("light");
   useEffect(() => {
@@ -27,9 +28,8 @@ const App = () => {
       value={{ theme, switchTheme }}
       className="scrollbar-webkit scorllbar-thin"
     >
-      {/* {isLogin ? <LoginPage togglePage={togglePage} /> : <SignupPage togglePage={togglePage} />} */}
-      <NavBar />
-      <AllRouting />
+      <NavBar isLogin={isLogin} setIsLogin={setIsLogin}/>
+      <AllRouting  isLogin={isLogin} setIsLogin={setIsLogin}/>
       <Footer/>
     </ThemeContext.Provider>
   );

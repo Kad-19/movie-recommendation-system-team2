@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { auth } from "@/firebase";
 
-export default function NavBar() {
+export default function NavBar({isLogin, setIsLogin}) {
   const [show, setShow] = useState(false);
   const { theme, switchTheme } = useContext(ThemeContext);
   const [isLogedin, setIsLogedin] = useState(false);
@@ -69,7 +69,7 @@ export default function NavBar() {
               className="hover:font-semibold transition-all duration-300 ease-in-out"
             >
               <Typography>
-                {auth?.currentUser?.uid ? "Logout" : "Login"}
+                {isLogin ? "Logout" : "Login"}
               </Typography>
             </NavLink>
           </li>
