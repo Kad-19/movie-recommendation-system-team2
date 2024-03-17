@@ -2,10 +2,60 @@ import React, { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import "./MovieList.css";
 
+//FIREBASE----------------
+import { DB } from "@/firebase";
+import { getDocs, collection } from "firebase/firestore";
+import { data } from "autoprefixer";
+
+//------------------------------
+
+
 const WishListPage = () => {
   const [movies, setMovies] = useState([]);
-  const movie_ids = ["848538", "969492"];
-  console.log(movies);
+  const [movie_ids,setMovieIDs] = useState([]);
+  
+  //, "969492"
+
+  //-----------RETRIVING DATA FROM FIREBASE----------------------------
+
+  const [MovieList, setMovieList] = useState([]);
+  const moviesCollectionRef = collection(DB, "movies");
+
+  useEffect(() => {
+
+    const getMovieList = async () => {
+      try {
+        const data = await getDocs(moviesCollectionRef);
+        const filteredData = data.docs.map((doc) => ({
+          ...doc.data(),
+          //id: doc.id,
+        }));
+        console.log(filteredData)
+        setMovieList(filteredData)
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    
+    getMovieList();
+  }, []);
+
+  console.log(MovieList)
+  const currentMovie = MovieList.map((movie) => {
+    return (movie.movieID);
+  })
+
+  useEffect(()=>{
+    setMovieIDs([...currentMovie]);
+  },[])
+  
+  console.log(movie_ids)
+  
+  // currentMovie.map((each)=>{
+  //   setMovieIDs((prev)=>([...movie_ids,each]))
+  // })
+
+  //--------------------------------------------------------------------
 
   useEffect(() => {
     const fetchMovies = async () => {

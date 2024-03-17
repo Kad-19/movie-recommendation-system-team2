@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Typography } from '@mui/material';
 
+//Firebase ---------------
+
+import { auth } from "@/firebase";
+import {signInWithEmailAndPassword} from 'firebase/auth'
+
+//-------------------------------
+
 const ForgotPasswordPage = () => {
     const [resetMethod, setResetMethod] = useState('');
     const [email, setEmail] = useState('');
@@ -94,8 +101,23 @@ const LoginPage = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        // Add your login logic here
+
+
+        // Add your login logic here------------------------------
+
         alert('Login logic goes here');
+
+        const logIn= async ()=>{
+            try{
+            await signInWithEmailAndPassword(auth, email,password)
+            }catch(err){
+              console.error(err);
+            }
+          }
+          logIn();
+          console.log(auth?.currentUser?.email);
+
+          //---------------------------------------------
     };
 
     return (

@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
+
+//Firebase-----------------
+import { auth } from "@/firebase";
+import {createUserWithEmailAndPassword} from 'firebase/auth'
+//--------------------------------------
+
 const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,8 +38,19 @@ const SignupPage = () => {
       return;
     }
 
-    // Add your signup logic here
+    // Add your signup logic here--------------
+
+    
     alert("Signup logic goes here");
+    const signUp= async ()=>{
+      try{
+      await createUserWithEmailAndPassword(auth, email,password)
+      }catch(err){
+        console.error(err);
+      }
+    }
+    signUp();
+    console.log(auth?.currentUser?.email);
   };
 
   return (

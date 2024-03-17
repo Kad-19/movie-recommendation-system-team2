@@ -7,12 +7,36 @@ import { ThemeContext } from "@/App";
 import VideoPopup from "./VideoPopup";
 import Pagination from "./Pagination";
 import { Button } from "./ui/button";
+
+//FIREBASE ----------------
+import {addDoc,collection} from 'firebase/firestore'
+import { DB, auth } from "@/firebase";
+
+
 function SingleMoviePage() {
   const { movie_id } = useParams();
   const [movie, setMovie] = useState({});
   const [trailer, setTrailer] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+
+
+
+  //ADDING TO THE FIREBASE-----------------
+  const movieCollectionRef=collection(DB,'movies')
+
+
+  const addToWhish= async ()=>{
+    window.alert('whishlist added')
+    try{
+    await addDoc(movieCollectionRef,{movieID: movie_id, userId:auth?.currentUser?.uid,})
+    }catch(err){
+      console.error(err)
+    }
+  }
+
+
+  //-------------------------------------------------
 
   const handleNext = () => {
     setCurrentPage((prev) => prev + 1);
@@ -51,6 +75,7 @@ function SingleMoviePage() {
       }
     }
   };
+
   const { theme, switchTheme } = useContext(ThemeContext);
   return (
     <main className=" text-gray-800 bg-gray-100 dark:bg-gray-800 dark:text-slate-100">
@@ -98,7 +123,7 @@ function SingleMoviePage() {
           </Typography>
           <div className="flex gap-3">
             <VideoPopup link={`https://www.youtube.com/embed/${trailer}`} />
-            <Button>Add to WishList</Button>
+            <Button onClick={addToWhish}>Add to WishList</Button>
           </div>
         </div>
       </section>
