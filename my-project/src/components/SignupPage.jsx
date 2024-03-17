@@ -56,11 +56,20 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="w-full bg-zinc-50 dark:bg-zinc-700  md:m-8">
+    <div  className="w-full items-center float-right justify-center min-h-screen bg-zinc-50 dark:bg-zinc-700  ">
       <div
-        className="bg-stone-50 p-8 rounded-xl m-2 sm:m-2 md:mx-48 shadow-2xl border border-gray-300
-        dark:bg-zinc-800 dark:text-white"
-      >
+      className=" bg-zinc-50
+      m-16  
+      dark:bg-zinc-800
+      dark:text-white 
+      p-4
+      w-8/12
+      md:p-8 
+      rounded-2xl 
+      shadow-2xl 
+      border 
+      border-gray-300 
+      h-fit">
         <h2 className="text-4xl font-bold text-center mb-6">Sign Up</h2>
         {error && <p className="text-red-500">{error}</p>}
         <form onSubmit={handleSignup}>

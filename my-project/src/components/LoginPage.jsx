@@ -31,11 +31,9 @@ const ForgotPasswordPage = () => {
   };
 
   return (
-    <div className="w-full items-center float-right justify-center min-h-screen bg-zinc-50 dark:bg-zinc-700  ">
-      <div
-        className="bg-stone-50 p-8 rounded-xl m-8 w-max-2/12 sm:m-24 lg:mr-48 shadow-2xl border border-gray-300
-                dark:bg-zinc-800 dark:text-white"
-      >
+    <div  className="w-full items-center float-right justify-center min-h-screen bg-zinc-50 dark:bg-zinc-700  ">
+    <div className="bg-stone-50 p-8 rounded-xl m-8 w-max-2/12 sm:m-24 lg:mr-48 shadow-2xl border border-gray-300
+    dark:bg-zinc-800 dark:text-white">
         <NavLink
           to="/signup"
           className=" float-end bg-blue-500 text-white rounded-md px-1"
@@ -154,11 +152,9 @@ const LoginPage = () => {
       {isForgotPassword ? (
         <ForgotPasswordPage />
       ) : (
-        <div className="w-full items-center justify-center bg-zinc-50 dark:bg-zinc-700 md:m-8 ">
-          <div
-            className="bg-stone-50 p-8 rounded-xl m-2 sm:m-2 lg:mr-48 shadow-2xl border border-gray-300
-                dark:bg-zinc-800 dark:text-white"
-          >
+        <div  className="w-full items-center float-right justify-center min-h-screen bg-zinc-50 dark:bg-zinc-700  ">
+        <div className="bg-stone-50 p-8 rounded-xl mx-8 sm:m-24 lg:mr-48 shadow-2xl border border-gray-300
+        dark:bg-zinc-800 dark:text-white">
             <h2 className="font-bold mb-8 p-2">Sign In</h2>
             <form onSubmit={handleLogin} className="max-w-md">
               <div className="mb-4">
