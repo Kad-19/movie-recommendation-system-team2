@@ -104,12 +104,12 @@ const LoginPage = () => {
                 <ForgotPasswordPage/>
             ) : (
                 <div  className="w-full items-center float-right justify-center min-h-screen bg-zinc-50 dark:bg-zinc-700  ">
-                <div className="bg-stone-50 p-8 rounded-xl m-8 w-max-2/12 sm:m-24 lg:mr-48 shadow-2xl border border-gray-300
+                <div className="bg-stone-50 p-8 rounded-xl m-8 sm:m-24 lg:mr-48 shadow-2xl border border-gray-300
                 dark:bg-zinc-800 dark:text-white">
                         <h2 className="font-bold mb-8">Sign In</h2>
                         <form onSubmit={handleLogin} className="max-w-md">
                             <div className="mb-4">
-                                <label htmlFor="email" className="block text-gray-700">Email:</label>
+                                <label htmlFor="email" className="block text-gray-700 dark:text-white">Email:</label>
                                 <input
                                     type="email"
                                     id="email"
@@ -118,11 +118,11 @@ const LoginPage = () => {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
-                                    className="block w-full px-4 py-2 mt-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                                    className="block w-full py-3 px-2 mt-2  border border-gray-300 rounded-md focus:outline focus:border-blue-500"
                                 />
                             </div>
                             <div className="mb-6">
-                                <label htmlFor="password" className="block text-gray-700">Password:</label>
+                                <label htmlFor="password" className="block text-gray-700 dark:text-white">Password:</label>
                                 <input
                                     type="password"
                                     id="password"
@@ -131,13 +131,13 @@ const LoginPage = () => {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
-                                    className="block w-full px-4 py-2 mt-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                                    className="block w-full py-3 px-2 mt-2  border border-gray-300 rounded-md focus:outline focus:border-blue-500"
                                 />
                             </div>
                             <button type="submit" className="w-full px-4 py-2 mt-4 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Login</button>
                         </form>
                         <h4 className="mt-4 text-red-500 cursor-pointer" onClick={handleForgotPassword}>Forgot my password?</h4>
-                        <h4 className="mt-4 text-gray-700">
+                        <h4 className="mt-4 text-gray-700 dark:text-white">
                             Don't have an account? <NavLink to="/signup" className="text-white bg-blue-500">Create Account</NavLink>
                         </h4>
                     </div>

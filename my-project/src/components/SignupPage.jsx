@@ -37,20 +37,30 @@ const SignupPage = () => {
   };
 
   return (
-    <div
-      className=" bg-white p-8 rounded-2xl shadow-2xl border border-gray-300 max-h-screen"
-      style={{ marginLeft: "800px" }}
-    >
-      <h2 className="text-black text-4xl font-bold text-center mb-6">
+    <div  className="w-full items-center float-right justify-center min-h-screen bg-zinc-50 dark:bg-zinc-700  ">
+      <div
+      className=" bg-zinc-50
+      m-16  
+      dark:bg-zinc-800
+      dark:text-white 
+      p-4
+      w-8/12
+      md:p-8 
+      rounded-2xl 
+      shadow-2xl 
+      border 
+      border-gray-300 
+      h-fit">
+      <h2 className="text-4xl font-bold text-center mb-6">
         Sign Up
       </h2>
       {error && <p className="text-red-500">{error}</p>}
       <form onSubmit={handleSignup}>
-        <label className="text-black text-2xl" htmlFor="email ">
+        <label className="text-2xl" htmlFor="email ">
           Email:
         </label>
         <input
-          className="block w-full px-4 py-2 mt-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:bg-white focus:border-blue-500"
+          className="block w-10/12 px-4 py-2 mt-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:bg-white focus:border-blue-500"
           type="email"
           id="email"
           name="email"
@@ -60,11 +70,11 @@ const SignupPage = () => {
           required
         />
         <br></br>
-        <label className="text-black text-2xl mb-6" htmlFor="password">
+        <label className="text-2xl mb-6" htmlFor="password">
           Password:
         </label>
         <input
-          className="block w-full px-4 py-2 mt-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:bg-white focus:border-blue-500"
+          className="block w-10/12 px-4 py-2 mt-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:bg-white focus:border-blue-500"
           type="password"
           id="password"
           name="password"
@@ -74,11 +84,11 @@ const SignupPage = () => {
           required
         />
         <br></br>
-        <label className="text-black text-2xl" htmlFor="confirmPassword">
+        <label className=" text-2xl" htmlFor="confirmPassword">
           Confirm Password:
         </label>
         <input
-          className="block w-full px-4 py-2 mt-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:bg-white focus:border-blue-500"
+          className="block w-10/12 px-4 py-2 mt-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:bg-white focus:border-blue-500"
           type="password"
           id="confirmPassword"
           name="confirmPassword"
@@ -91,17 +101,18 @@ const SignupPage = () => {
 
         <button
           type="submit"
-          className="w-full px-6 py-2 mt-4 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          className=" items-end text-right px-6 py-2 mt-4 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
         >
           Create Account
         </button>
-      </form>
-      <h4 className="text-black text-xl">
+      <h4 className="text-l mt-8 float-end">
         Already have an account?{" "}
         <NavLink to="/login" className="mt-4 py-1 bg-blue-400">
           Sign In
         </NavLink>
       </h4>
+      </form>
+    </div>
     </div>
   );
 };
